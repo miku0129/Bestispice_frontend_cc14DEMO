@@ -30,8 +30,6 @@ function List() {
         );
       })
     );
-
-    // setAllInfo(JSON.stringify(data));
   }
 
   //get id from placeholder
@@ -48,7 +46,23 @@ function List() {
     const res = await req;
     const data = res.data;
     console.log(data);
-    setSingleInfo(JSON.stringify(data));
+    let temp = [];
+    for (let key in data) {
+      temp.push(data[key]);
+    }
+    console.log(temp);
+    setSingleInfo(
+      <ul>
+        <li>name: {temp[3]}</li>
+        <li>feature: {temp[2]}</li>
+        <li>place: {temp[4]}</li>
+        <li>business hour: {temp[0]}</li>
+        <li>business hour(evening): {temp[1]}</li>
+        <li>regular holiday: {temp[5]}</li>
+        <li>TELL: {temp[6]}</li>
+        <li>URL: {temp[7]}</li>
+      </ul>
+    );
   }
 
   return (
