@@ -21,6 +21,109 @@ function List() {
     setDeleteMessage(data.message);
   }
 
+  //update name
+  //get id
+  const [readyUpdateId, setReadyUpdateId] = useState("");
+  function toReadyUpdateId(e) {
+    setReadyUpdateId(e.target.value);
+  }
+  console.log(readyUpdateId);
+  //get name
+  const [readyUpdateName, setReadyUpdateName] = useState("");
+  function toReadyUpdateName(e) {
+    setReadyUpdateName(e.target.value);
+  }
+  console.log(readyUpdateName);
+  //set update name with given id and name
+  const [updateMessage, setUpdateData] = useState("");
+  async function toUpdate() {
+    let http =
+      "http://localhost:5000/api/v1/restaurants/" +
+      readyUpdateId +
+      "/" +
+      readyUpdateName;
+    let req = axios.put(http);
+    let res = await req;
+    let data = res.data;
+    console.log(data);
+    setUpdateData(data.message);
+  }
+
+  //post new restaurant
+  //name
+  const [addInfoName, setInfoName] = useState("");
+  function toAddInfoName(e) {
+    setInfoName(e.target.value);
+  }
+  console.log(addInfoName);
+  //feature
+  const [addInfoFeat, setInfoFeat] = useState("");
+  function toAddInfoFeat(e) {
+    setInfoFeat(e.target.value);
+  }
+  console.log(addInfoFeat);
+  //tell
+  const [addInfoTell, setInfoTell] = useState("");
+  function toAddInfoTell(e) {
+    setInfoTell(e.target.value);
+  }
+  console.log(addInfoTell);
+  //business hour1
+  const [addInfoHour1, setInfoHour1] = useState("");
+  function toAddInfoHour1(e) {
+    setInfoHour1(e.target.value);
+  }
+  console.log(addInfoHour1);
+  //business hour2
+  const [addInfoHour2, setInfoHour2] = useState("");
+  function toAddInfoHour2(e) {
+    setInfoHour2(e.target.value);
+  }
+  console.log(addInfoHour2);
+  //regular holiday
+  const [addInfoHoliday, setInfoHoliday] = useState("");
+  function toAddInfoHoliday(e) {
+    setInfoHoliday(e.target.value);
+  }
+  console.log(addInfoHoliday);
+  //place
+  const [addInfoPlace, setInfoPlace] = useState("");
+  function toAddInfoPlace(e) {
+    setInfoPlace(e.target.value);
+  }
+  console.log(addInfoPlace);
+  //url
+  const [addInfoUrl, setInfoUrl] = useState("");
+  function toAddInfoUrl(e) {
+    setInfoUrl(e.target.value);
+  }
+  console.log(addInfoUrl);
+  async function toAdd() {
+    let http =
+      "http://localhost:5000/api/v1/restaurants/" +
+      addInfoName +
+      "/" +
+      addInfoFeat +
+      "/" +
+      addInfoTell +
+      "/" +
+      addInfoHour1 +
+      "/" +
+      addInfoHour2 +
+      "/" +
+      addInfoHoliday +
+      "/" +
+      addInfoHoliday +
+      "/" +
+      addInfoPlace +
+      "/" +
+      addInfoUrl;
+    let req = axios.post(http);
+    let res = await req;
+    let data = res.data;
+    console.log(data);
+  }
+
   return (
     <div>
       <form class="edit_form">
@@ -36,9 +139,10 @@ function List() {
               <span>restaurant name</span>
               <input
                 type="text"
-                name="update"
+                name="add"
                 class="textfield"
-                placeholder="restaurant info?"
+                placeholder="restaurant name?"
+                onChange={toAddInfoName}
               ></input>
             </label>
           </li>
@@ -47,9 +151,10 @@ function List() {
               <span>feature</span>
               <input
                 type="text"
-                name="update"
+                name="add"
                 class="textfield"
                 placeholder="restaurant feature?"
+                onChange={toAddInfoFeat}
               ></input>
             </label>
           </li>
@@ -58,9 +163,10 @@ function List() {
               <span>tell</span>
               <input
                 type="text"
-                name="update"
+                name="add"
                 class="textfield"
-                placeholder="restaurant feature?"
+                placeholder="restaurant tell?"
+                onChange={toAddInfoTell}
               ></input>
             </label>
           </li>
@@ -69,9 +175,10 @@ function List() {
               <span>business hours1</span>
               <input
                 type="text"
-                name="update"
+                name="add"
                 class="textfield"
                 placeholder="business hours?"
+                onChange={toAddInfoHour1}
               ></input>
             </label>
           </li>
@@ -80,9 +187,10 @@ function List() {
               <span>business hours2</span>
               <input
                 type="text"
-                name="update"
+                name="add"
                 class="textfield"
                 placeholder="evening business hours?"
+                onChange={toAddInfoHour2}
               ></input>
             </label>
           </li>
@@ -91,9 +199,10 @@ function List() {
               <span>regular holiday</span>
               <input
                 type="text"
-                name="update"
+                name="add"
                 class="textfield"
                 placeholder="regular holiday?"
+                onChange={toAddInfoHoliday}
               ></input>
             </label>
           </li>
@@ -102,9 +211,10 @@ function List() {
               <span>place</span>
               <input
                 type="text"
-                name="update"
+                name="add"
                 class="textfield"
                 placeholder="place?"
+                onChange={toAddInfoPlace}
               ></input>
             </label>
           </li>
@@ -113,15 +223,18 @@ function List() {
               <span>url</span>
               <input
                 type="text"
-                name="update"
+                name="add"
                 class="textfield"
                 placeholder="url?"
+                onChange={toAddInfoUrl}
               ></input>
             </label>
           </li>
           <li>
             <label>
-              <button id="add_info">add</button>
+              <button id="add_info" onClick={toAdd}>
+                add
+              </button>
             </label>
           </li>
         </ul>
@@ -129,19 +242,35 @@ function List() {
       <ul>
         <li>
           <label>
+            <span>restaurant id</span>
+            <input
+              type="text"
+              name="update"
+              class="textfield"
+              placeholder="restaurant id?"
+              onChange={toReadyUpdateId}
+            ></input>
+          </label>
+        </li>
+        <li>
+          <label>
             <span>update restaurant name</span>
             <input
               type="text"
               name="update"
               class="textfield"
-              placeholder="restaurant name?"
+              placeholder="update name?"
+              onChange={toReadyUpdateName}
             ></input>
           </label>
           <li>
             <label>
-              <button id="update_info">update</button>
+              <button id="update_info" onClick={toUpdate}>
+                update
+              </button>
             </label>
           </li>
+          <li>message:{updateMessage}</li>
         </li>
       </ul>
       <ul>
@@ -164,7 +293,7 @@ function List() {
             </button>
           </label>
         </li>
-        <li>{deleteMessage}</li>
+        <li>message:{deleteMessage}</li>
       </ul>
     </div>
   );
