@@ -4,6 +4,23 @@ import axios from "axios";
 
 //Form
 function List() {
+  //delete
+  const [readyDelete, setReadyDelete] = useState("");
+  function toReadyDelete(e) {
+    console.log(e.target.value);
+    setReadyDelete(e.target.value);
+  }
+  const [deleteMessage, setDeleteMessage] = useState("");
+  async function toDelete() {
+    console.log(readyDelete);
+    let http = "http://localhost:5000/api/v1/restaurants/" + readyDelete;
+    let req = axios.delete(http);
+    let res = await req;
+    let data = res.data;
+    console.log(data);
+    setDeleteMessage(data.message);
+  }
+
   return (
     <div>
       <form class="edit_form">
@@ -108,43 +125,47 @@ function List() {
             </label>
           </li>
         </ul>
-        <ul>
-          <li>
-            <label>
-              <span>update restaurant name</span>
-              <input
-                type="text"
-                name="update"
-                class="textfield"
-                placeholder="restaurant name?"
-              ></input>
-            </label>
-            <li>
-              <label>
-                <button id="update_info">update</button>
-              </label>
-            </li>
-          </li>
-        </ul>
-        <ul>
-          <li>
-            <label>
-              <span>delete restaurant info</span>
-              <input
-                type="text"
-                name="update"
-                class="textfield"
-                placeholder="restaurant id?"
-              ></input>
-            </label>
-            <li>
-              <label>
-                <button id="update_info">delete</button>
-              </label>
-            </li>
-          </li>
-        </ul>
       </form>
+      <ul>
+        <li>
+          <label>
+            <span>update restaurant name</span>
+            <input
+              type="text"
+              name="update"
+              class="textfield"
+              placeholder="restaurant name?"
+            ></input>
+          </label>
+          <li>
+            <label>
+              <button id="update_info">update</button>
+            </label>
+          </li>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <label>
+            <span>delete restaurant info</span>
+            <input
+              type="text"
+              name="update"
+              class="textfield"
+              placeholder="restaurant id?"
+              onChange={toReadyDelete}
+            ></input>
+          </label>
+        </li>
+        <li>
+          <label>
+            <button id="delete_info" onClick={toDelete}>
+              delete
+            </button>
+          </label>
+        </li>
+        <li>{deleteMessage}</li>
+      </ul>
     </div>
   );
 }
