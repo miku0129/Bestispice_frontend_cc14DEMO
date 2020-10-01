@@ -98,138 +98,137 @@ function List() {
     setInfoUrl(e.target.value);
   }
   console.log(addInfoUrl);
+
   async function toAdd() {
-    let http =
-      "http://localhost:5000/api/v1/restaurants/" +
-      addInfoName +
-      "/" +
-      addInfoFeat +
-      "/" +
-      addInfoTell +
-      "/" +
-      addInfoHour1 +
-      "/" +
-      addInfoHour2 +
-      "/" +
-      addInfoHoliday +
-      "/" +
-      addInfoHoliday +
-      "/" +
-      addInfoPlace +
-      "/" +
-      addInfoUrl;
-    let req = axios.post(http);
+    // const params = new URLSearchParams();
+
+    console.log("I'm in toAdd");
+    // params.append("name", "miku");
+
+    let req = axios.post("http://localhost:5000/api/v1/restaurants/", {
+      name: addInfoName,
+      feature: addInfoFeat,
+      tell: addInfoTell,
+      business_hours1: addInfoHour1,
+      business_hours2: addInfoHour2,
+      regular_holiday: addInfoHoliday,
+      place: addInfoPlace,
+      url: addInfoUrl,
+    });
     let res = await req;
-    let data = res.data;
-    console.log(data);
+    let result = res.data;
+    console.log("result", result);
+    console.log("hello");
   }
 
   return (
     <div>
-      <form class="edit_form">
+      <div className="get_restaurant_info">
         <h2>edit restaurant data</h2>
         <ul>
-          <li>
-            <label>
-              <span>add new restaurant</span>
-            </label>
-          </li>
-          <li>
-            <label>
-              <span>restaurant name</span>
-              <input
-                type="text"
-                name="add"
-                class="textfield"
-                placeholder="restaurant name?"
-                onChange={toAddInfoName}
-              ></input>
-            </label>
-          </li>
-          <li>
-            <label>
-              <span>feature</span>
-              <input
-                type="text"
-                name="add"
-                class="textfield"
-                placeholder="restaurant feature?"
-                onChange={toAddInfoFeat}
-              ></input>
-            </label>
-          </li>
-          <li>
-            <label>
-              <span>tell</span>
-              <input
-                type="text"
-                name="add"
-                class="textfield"
-                placeholder="restaurant tell?"
-                onChange={toAddInfoTell}
-              ></input>
-            </label>
-          </li>
-          <li>
-            <label>
-              <span>business hours1</span>
-              <input
-                type="text"
-                name="add"
-                class="textfield"
-                placeholder="business hours?"
-                onChange={toAddInfoHour1}
-              ></input>
-            </label>
-          </li>
-          <li>
-            <label>
-              <span>business hours2</span>
-              <input
-                type="text"
-                name="add"
-                class="textfield"
-                placeholder="evening business hours?"
-                onChange={toAddInfoHour2}
-              ></input>
-            </label>
-          </li>
-          <li>
-            <label>
-              <span>regular holiday</span>
-              <input
-                type="text"
-                name="add"
-                class="textfield"
-                placeholder="regular holiday?"
-                onChange={toAddInfoHoliday}
-              ></input>
-            </label>
-          </li>
-          <li>
-            <label>
-              <span>place</span>
-              <input
-                type="text"
-                name="add"
-                class="textfield"
-                placeholder="place?"
-                onChange={toAddInfoPlace}
-              ></input>
-            </label>
-          </li>
-          <li>
-            <label>
-              <span>url</span>
-              <input
-                type="text"
-                name="add"
-                class="textfield"
-                placeholder="url?"
-                onChange={toAddInfoUrl}
-              ></input>
-            </label>
-          </li>
+          <form class="edit_form">
+            <li>
+              <label>
+                <span>add new restaurant</span>
+              </label>
+            </li>
+            <li>
+              <label>
+                <span>restaurant name</span>
+                <input
+                  type="text"
+                  name="add"
+                  class="textfield"
+                  placeholder="restaurant name?"
+                  onChange={toAddInfoName}
+                ></input>
+              </label>
+            </li>
+            <li>
+              <label>
+                <span>feature</span>
+                <input
+                  type="text"
+                  name="add"
+                  class="textfield"
+                  placeholder="restaurant feature?"
+                  onChange={toAddInfoFeat}
+                ></input>
+              </label>
+            </li>
+            <li>
+              <label>
+                <span>tell</span>
+                <input
+                  type="text"
+                  name="add"
+                  class="textfield"
+                  placeholder="restaurant tell?"
+                  onChange={toAddInfoTell}
+                ></input>
+              </label>
+            </li>
+            <li>
+              <label>
+                <span>business hours1</span>
+                <input
+                  type="text"
+                  name="add"
+                  class="textfield"
+                  placeholder="business hours?"
+                  onChange={toAddInfoHour1}
+                ></input>
+              </label>
+            </li>
+            <li>
+              <label>
+                <span>business hours2</span>
+                <input
+                  type="text"
+                  name="add"
+                  class="textfield"
+                  placeholder="evening business hours?"
+                  onChange={toAddInfoHour2}
+                ></input>
+              </label>
+            </li>
+            <li>
+              <label>
+                <span>regular holiday</span>
+                <input
+                  type="text"
+                  name="add"
+                  class="textfield"
+                  placeholder="regular holiday?"
+                  onChange={toAddInfoHoliday}
+                ></input>
+              </label>
+            </li>
+            <li>
+              <label>
+                <span>place</span>
+                <input
+                  type="text"
+                  name="add"
+                  class="textfield"
+                  placeholder="place?"
+                  onChange={toAddInfoPlace}
+                ></input>
+              </label>
+            </li>
+            <li>
+              <label>
+                <span>url</span>
+                <input
+                  type="text"
+                  name="add"
+                  class="textfield"
+                  placeholder="url?"
+                  onChange={toAddInfoUrl}
+                ></input>
+              </label>
+            </li>
+          </form>
           <li>
             <label>
               <button id="add_info" onClick={toAdd}>
@@ -238,7 +237,7 @@ function List() {
             </label>
           </li>
         </ul>
-      </form>
+      </div>
       <ul>
         <li>
           <label>
