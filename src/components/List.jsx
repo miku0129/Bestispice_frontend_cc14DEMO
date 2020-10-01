@@ -5,14 +5,32 @@ import axios from "axios";
 //list restaruant names
 function List() {
   //get all restaurant info
+  //more readable □
   const [allInfo, setAllInfo] = useState("");
   async function getAllInfo() {
-    let req = axios.get("http://localhost:5000/api/v1/restaurants/");
+    let http = "http://localhost:5000/api/v1/restaurants/";
+    let req = axios.get(http);
     let res = await req;
     let data = res.data;
     console.log(JSON.stringify(data));
-
     setAllInfo(JSON.stringify(data));
+  }
+
+  //get id from placeholder
+  const [readySingleInfo, setReadySingleInfo] = useState("");
+  function toReadySingleInfo(e) {
+    setReadySingleInfo(e.target.value);
+  }
+  console.log(readySingleInfo);
+  //back single restaurant info when click button
+  const [singleInfo, setSingleInfo] = useState("");
+  async function toGetSingleInfo() {
+    const http = "http://localhost:5000/api/v1/restaurants/" + readySingleInfo;
+    const req = axios.get(http);
+    const res = await req;
+    const data = res.data;
+    console.log(data);
+    setSingleInfo(JSON.stringify(data));
   }
 
   return (
@@ -34,13 +52,19 @@ function List() {
               type="text"
               name="get_single_info"
               placeholder="restaurant id?"
+              onChange={toReadySingleInfo}
             ></input>
-            <button id="get_single_restaurant">signle</button>
+            <button id="get_single_restaurant" onClick={toGetSingleInfo}>
+              signle
+            </button>
           </label>
         </li>
       </ul>
       <div className="card_base">
+        <p>all info</p>
         <div className="card">{allInfo}</div>
+        <p>single info</p>
+        <div className="card">{singleInfo}</div>
       </div>
     </div>
   );
