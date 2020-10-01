@@ -12,8 +12,26 @@ function List() {
     let req = axios.get(http);
     let res = await req;
     let data = res.data;
-    console.log(JSON.stringify(data));
-    setAllInfo(JSON.stringify(data));
+    console.log(data);
+    let temp = [];
+    for (let key in data) {
+      console.log(data[key]);
+      temp.push(data[key]);
+    }
+    console.log(temp);
+    setAllInfo(
+      temp.map((el) => {
+        return (
+          <ul>
+            <li>id:{el[1]}</li>
+            <li>name:{el[0]}</li>
+            <li>feature:{el[3]}</li>
+          </ul>
+        );
+      })
+    );
+
+    // setAllInfo(JSON.stringify(data));
   }
 
   //get id from placeholder
