@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../style/Form.css";
 import axios from "axios";
+import { Form, Button, Row, Col } from "react-bootstrap";
 
 //Form
 function List() {
@@ -238,7 +239,40 @@ function List() {
           </li>
         </ul>
       </div>
-      <ul>
+      <Form>
+        <Form.Group controlId="formUpdateInfo">
+          <Form.Label>Update info</Form.Label>
+
+          <Row>
+            <Col>
+              <Form.Control
+                type="text"
+                placeholder="restaurant id?"
+                onChange={toReadyUpdateId}
+              ></Form.Control>
+            </Col>
+            <Col>
+              <Form.Control
+                type="text"
+                placeholder="update name?"
+                onChange={toReadyUpdateName}
+              ></Form.Control>
+            </Col>
+          </Row>
+
+          <Form.Text>{updateMessage}</Form.Text>
+        </Form.Group>
+        {/* <Button variant="info" type="submit" onClick={toDelete}>
+          delete
+        </Button> */}
+        {/* ボタンがFormの中にあるとつかえない？ */}
+      </Form>
+
+      <Button variant="success" type="submit" onClick={toUpdate}>
+        update
+      </Button>
+
+      {/* <ul>
         <li>
           <label>
             <span>restaurant id</span>
@@ -271,8 +305,8 @@ function List() {
           </li>
           <li>message:{updateMessage}</li>
         </li>
-      </ul>
-      <ul>
+      </ul> */}
+      {/* <ul>
         <li>
           <label>
             <span>delete restaurant info</span>
@@ -285,15 +319,26 @@ function List() {
             ></input>
           </label>
         </li>
-        <li>
-          <label>
-            <button id="delete_info" onClick={toDelete}>
-              delete
-            </button>
-          </label>
-        </li>
-        <li>message:{deleteMessage}</li>
-      </ul>
+        <li> */}
+      <Form>
+        <Form.Group controlId="formDeleteInfo">
+          <Form.Label>Delete info</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="restaurant id?"
+            onChange={toReadyDelete}
+          ></Form.Control>
+          <Form.Text>{deleteMessage}</Form.Text>
+        </Form.Group>
+        {/* <Button variant="info" type="submit" onClick={toDelete}>
+          delete
+        </Button> */}
+        {/* ボタンがFormの中にあるとつかえない？ */}
+      </Form>
+
+      <Button variant="danger" type="submit" onClick={toDelete}>
+        delete
+      </Button>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../style/List.css";
 import axios from "axios";
+import { Button, Card, Form } from "react-bootstrap";
 
 //list restaruant names
 function List() {
@@ -22,11 +23,18 @@ function List() {
     setAllInfo(
       temp.map((el) => {
         return (
-          <ul>
-            <li>id:{el[1]}</li>
-            <li>name:{el[0]}</li>
-            <li>feature:{el[3]}</li>
-          </ul>
+          // <ul>
+          //   <li>id:{el[1]}</li>
+          //   <li>name:{el[0]}</li>
+          //   <li>feature:{el[3]}</li>
+          // </ul>
+          <Card style={{ sidth: "18rem" }}>
+            <Card.Body>
+              <Card.Title>{el[0]}</Card.Title>
+              <Card.Subtitle>{el[2]}</Card.Subtitle>
+              <Card.Text>ID: {el[1]}</Card.Text>
+            </Card.Body>
+          </Card>
         );
       })
     );
@@ -52,51 +60,67 @@ function List() {
     }
     console.log(temp);
     setSingleInfo(
-      <ul>
-        <li>name: {temp[3]}</li>
-        <li>feature: {temp[2]}</li>
-        <li>place: {temp[4]}</li>
-        <li>business hour: {temp[0]}</li>
-        <li>business hour(evening): {temp[1]}</li>
-        <li>regular holiday: {temp[5]}</li>
-        <li>TELL: {temp[6]}</li>
-        <li>URL: {temp[7]}</li>
-      </ul>
+      // <ul>
+      //   <li>name: {temp[3]}</li>
+      //   <li>feature: {temp[2]}</li>
+      //   <li>place: {temp[4]}</li>
+      //   <li>business hour: {temp[0]}</li>
+      //   <li>business hour(evening): {temp[1]}</li>
+      //   <li>regular holiday: {temp[5]}</li>
+      //   <li>TELL: {temp[6]}</li>
+      //   <li>URL: {temp[7]}</li>
+      // </ul>
+      <Card style={{ width: "18rem" }}>
+        <Card.Body>
+          <Card.Title>{temp[3]}</Card.Title>
+          <Card.Subtitle>{temp[2]}</Card.Subtitle>
+          <ul>
+            <li>place: {temp[4]}</li>
+            <li>business hour: {temp[0]}</li>
+            <li>business hour(evening): {temp[1]}</li>
+            <li>regular holiday: {temp[5]}</li>
+            <li>TELL: {temp[6]}</li>
+            <li>URL: {temp[7]}</li>
+          </ul>
+        </Card.Body>
+      </Card>
     );
   }
 
   return (
     <div>
       <h2>get restaurant info</h2>
-      <ul>
-        <li>
-          <label>
-            <span>get all restaurant info</span>
-            <button id="get_all_restaurant" onClick={getAllInfo}>
-              all
-            </button>
-          </label>
-        </li>
-        <li>
-          <label>
-            <span>get single restaurant info</span>
-            <input
-              type="text"
-              name="get_single_info"
-              placeholder="restaurant id?"
-              onChange={toReadySingleInfo}
-            ></input>
-            <button id="get_single_restaurant" onClick={toGetSingleInfo}>
-              signle
-            </button>
-          </label>
-        </li>
-      </ul>
+      <Form>
+        <Form.Group controlId="formGetAllInfo">
+          <Form.Label>Get all names</Form.Label>
+        </Form.Group>
+      </Form>
+      <Button variant="info" type="submit" onClick={getAllInfo}>
+        all
+      </Button>
+      <p></p>
+      <Form>
+        <Form.Group controlId="formGetSingleInfo">
+          <Form.Label>Get single restaurant</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="restaurant id?"
+            onChange={toReadySingleInfo}
+          ></Form.Control>
+        </Form.Group>
+        {/* <Button variant="info" type="submit" onClick={toDelete}>
+          delete
+        </Button> */}
+        {/* ボタンがFormの中にあるとつかえない？ */}
+      </Form>
+
+      <Button variant="info" type="submit" onClick={toGetSingleInfo}>
+        single
+      </Button>
+
       <div className="card_base">
-        <p>all info</p>
-        <div className="card">{allInfo}</div>
-        <p>single info</p>
-        <div className="card">{singleInfo}</div>
+        <div>{allInfo}</div>
+        <div>{singleInfo}</div>
       </div>
     </div>
   );
