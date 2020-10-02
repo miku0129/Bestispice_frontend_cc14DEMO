@@ -35,7 +35,7 @@ function App() {
           />
         </Navbar.Brand>
       </Navbar>
-      <footer>Code Chrysalis 🍛</footer>
+      <footer>Code Chrysalis 🐍🐍🐍</footer>
     </div>
   );
 }
