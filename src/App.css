@@ -3,11 +3,13 @@
   margin: 0 auto;
 }
 header {
-  background-color: aquamarine;
+  background-color: gold;
 }
 /* .container {
   display: flex;
 } */
+
 footer {
-  background-color: blueviolet;
+  background-color: purple;
+  color: antiquewhite;
 }

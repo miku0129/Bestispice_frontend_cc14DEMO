@@ -4,6 +4,7 @@ import Nav from "./components/Nav";
 import List from "./components/List.jsx";
 import Form from "./components/Form.jsx";
 import axios from "axios";
+import { Navbar } from "react-bootstrap";
 
 function App() {
   //   async function test() {
@@ -16,13 +17,25 @@ function App() {
 
   return (
     <div className="App wrapper">
-      <header>My favorite curry restaurants</header>
+      <header>
+        <h3>Spicy life ❤️‍🔥</h3>
+      </header>
       {/* <div className="container"> */}
       <Nav />
       <List />
       <Form />
       {/* </div> */}
-      <footer>BestiPython</footer>
+      <Navbar bg="light">
+        <Navbar.Brand className="footer_logo">
+          <img
+            src="logo__14_-removebg-preview.png"
+            width="100"
+            height="auto"
+            alt="bestipython logo"
+          />
+        </Navbar.Brand>
+      </Navbar>
+      <footer>Code Chrysalis 🍛</footer>
     </div>
   );
 }
