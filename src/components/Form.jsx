@@ -323,6 +323,8 @@ function List() {
         </ul>
       </div> */}
       <div className="container">
+        <h2>Edit restaurant infomation</h2>
+
         <div className="box">
           <Form>
             <Form.Group controlId="formUpdateInfo">
