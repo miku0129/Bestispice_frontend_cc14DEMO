@@ -5,13 +5,6 @@ import { Button, Card, Form } from "react-bootstrap";
 
 //list restaruant names
 function List() {
-  //---move hook up
-  //get id from placeholder
-  const [readySingleInfo, setReadySingleInfo] = useState("");
-  //back single restaurant info when click button
-  const [singleInfo, setSingleInfo] = useState("");
-  //move hook up---
-
   //get all restaurant info
   //more readable □
   const [allInfo, setAllInfo] = useState("");
@@ -48,13 +41,13 @@ function List() {
   }
 
   //get id from placeholder
-  // const [readySingleInfo, setReadySingleInfo] = useState("");
+  const [readySingleInfo, setReadySingleInfo] = useState("");
   function toReadySingleInfo(e) {
     setReadySingleInfo(e.target.value);
   }
   console.log(readySingleInfo);
   //back single restaurant info when click button
-  // const [singleInfo, setSingleInfo] = useState("");
+  const [singleInfo, setSingleInfo] = useState("");
   async function toGetSingleInfo() {
     const http = "http://localhost:5000/api/v1/restaurants/" + readySingleInfo;
     const req = axios.get(http);
