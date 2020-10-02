@@ -100,6 +100,7 @@ function List() {
   }
   console.log(addInfoUrl);
 
+  const [updatedMessage, setUpdateMessage] = useState("");
   async function toAdd() {
     // const params = new URLSearchParams();
 
@@ -120,13 +121,95 @@ function List() {
     let result = res.data;
     console.log("result", result);
     console.log("hello");
+    setUpdateMessage(result.message);
   }
+  console.log(updatedMessage);
 
   return (
     <div>
-      <div className="get_restaurant_info">
+      <div className="container">
+        <h2>Add new restaurant</h2>
+        <Form>
+          <Form.Group controlId="formName">
+            <Form.Label>Name</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter name"
+              onChange={toAddInfoName}
+            />
+          </Form.Group>
+          <Form.Group controlId="formFeature">
+            <Form.Label>Feature</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter feature"
+              onChange={toAddInfoFeat}
+            />
+          </Form.Group>
+          <Form.Group controlId="formTell">
+            <Form.Label>Tell</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter tell"
+              onChange={toAddInfoTell}
+            />
+          </Form.Group>
+
+          <Row>
+            <Col>
+              <Form.Group controlId="formHour1">
+                <Form.Label>Business Hours1</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Enter bussiness hour"
+                  onChange={toAddInfoHour1}
+                />
+              </Form.Group>
+            </Col>
+            <Col>
+              <Form.Group controlId="formHour2">
+                <Form.Label>Business Hours2</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Enter evening business hour"
+                  onChange={toAddInfoHour2}
+                />
+              </Form.Group>
+            </Col>
+          </Row>
+          <Form.Group controlId="formHoriday">
+            <Form.Label>Regular Holiday</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter regular holiday"
+              onChange={toAddInfoHoliday}
+            />
+          </Form.Group>
+          <Form.Group controlId="formPlace">
+            <Form.Label>Place</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter Place"
+              onChange={toAddInfoPlace}
+            />
+          </Form.Group>
+          <Form.Group controlId="formUrl">
+            <Form.Label>URL</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter URL"
+              onChange={toAddInfoUrl}
+            />
+          </Form.Group>
+          <Form.Text>{updatedMessage}</Form.Text>
+        </Form>
+        <Button variant="success" type="submit" onClick={toAdd}>
+          add
+        </Button>
+      </div>
+      {/* <div className="edit_restaurant_info container">
         <h2>edit restaurant data</h2>
-        <ul>
+        <ul className="add_informaton_form">
           <form class="edit_form">
             <li>
               <label>
@@ -238,107 +321,64 @@ function List() {
             </label>
           </li>
         </ul>
-      </div>
-      <Form>
-        <Form.Group controlId="formUpdateInfo">
-          <Form.Label>Update info</Form.Label>
+      </div> */}
+      <div className="container">
+        <div className="box">
+          <Form>
+            <Form.Group controlId="formUpdateInfo">
+              <Form.Label>Update info</Form.Label>
 
-          <Row>
-            <Col>
+              <Row>
+                <Col>
+                  <Form.Control
+                    type="text"
+                    placeholder="restaurant id?"
+                    onChange={toReadyUpdateId}
+                  ></Form.Control>
+                </Col>
+                <Col>
+                  <Form.Control
+                    type="text"
+                    placeholder="update name?"
+                    onChange={toReadyUpdateName}
+                  ></Form.Control>
+                </Col>
+              </Row>
+
+              <Form.Text>{updateMessage}</Form.Text>
+            </Form.Group>
+            {/* <Button variant="info" type="submit" onClick={toDelete}>
+          delete
+        </Button> */}
+            {/* ボタンがFormの中にあるとつかえない？ */}
+          </Form>
+
+          <Button variant="success" type="submit" onClick={toUpdate}>
+            update
+          </Button>
+        </div>
+        <p></p>
+        <div className="box">
+          <Form>
+            <Form.Group controlId="formDeleteInfo">
+              <Form.Label>Delete info</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="restaurant id?"
-                onChange={toReadyUpdateId}
+                onChange={toReadyDelete}
               ></Form.Control>
-            </Col>
-            <Col>
-              <Form.Control
-                type="text"
-                placeholder="update name?"
-                onChange={toReadyUpdateName}
-              ></Form.Control>
-            </Col>
-          </Row>
-
-          <Form.Text>{updateMessage}</Form.Text>
-        </Form.Group>
-        {/* <Button variant="info" type="submit" onClick={toDelete}>
+              <Form.Text>{deleteMessage}</Form.Text>
+            </Form.Group>
+            {/* <Button variant="info" type="submit" onClick={toDelete}>
           delete
         </Button> */}
-        {/* ボタンがFormの中にあるとつかえない？ */}
-      </Form>
-
-      <Button variant="success" type="submit" onClick={toUpdate}>
-        update
-      </Button>
-
-      {/* <ul>
-        <li>
-          <label>
-            <span>restaurant id</span>
-            <input
-              type="text"
-              name="update"
-              class="textfield"
-              placeholder="restaurant id?"
-              onChange={toReadyUpdateId}
-            ></input>
-          </label>
-        </li>
-        <li>
-          <label>
-            <span>update restaurant name</span>
-            <input
-              type="text"
-              name="update"
-              class="textfield"
-              placeholder="update name?"
-              onChange={toReadyUpdateName}
-            ></input>
-          </label>
-          <li>
-            <label>
-              <button id="update_info" onClick={toUpdate}>
-                update
-              </button>
-            </label>
-          </li>
-          <li>message:{updateMessage}</li>
-        </li>
-      </ul> */}
-      {/* <ul>
-        <li>
-          <label>
-            <span>delete restaurant info</span>
-            <input
-              type="text"
-              name="update"
-              class="textfield"
-              placeholder="restaurant id?"
-              onChange={toReadyDelete}
-            ></input>
-          </label>
-        </li>
-        <li> */}
-      <Form>
-        <Form.Group controlId="formDeleteInfo">
-          <Form.Label>Delete info</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="restaurant id?"
-            onChange={toReadyDelete}
-          ></Form.Control>
-          <Form.Text>{deleteMessage}</Form.Text>
-        </Form.Group>
-        {/* <Button variant="info" type="submit" onClick={toDelete}>
-          delete
-        </Button> */}
-        {/* ボタンがFormの中にあるとつかえない？ */}
-      </Form>
-
-      <Button variant="danger" type="submit" onClick={toDelete}>
-        delete
-      </Button>
+            {/* ボタンがFormの中にあるとつかえない？ */}
+          </Form>
+          <Button variant="danger" type="submit" onClick={toDelete}>
+            delete
+          </Button>
+        </div>
+      </div>
     </div>
   );
 }

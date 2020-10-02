@@ -88,36 +88,39 @@ function List() {
   }
 
   return (
-    <div>
-      <h2>get restaurant info</h2>
-      <Form>
-        <Form.Group controlId="formGetAllInfo">
-          <Form.Label>Get all names</Form.Label>
-        </Form.Group>
-      </Form>
-      <Button variant="info" type="submit" onClick={getAllInfo}>
-        all
-      </Button>
+    <div className="container">
+      <h2>Get restaurant info</h2>
+      <div className="box">
+        <Form>
+          <Form.Group controlId="formGetAllInfo">
+            <Form.Label>Get all names</Form.Label>
+          </Form.Group>
+        </Form>
+        <Button variant="info" type="submit" onClick={getAllInfo}>
+          all
+        </Button>
+      </div>
       <p></p>
-      <Form>
-        <Form.Group controlId="formGetSingleInfo">
-          <Form.Label>Get single restaurant</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="restaurant id?"
-            onChange={toReadySingleInfo}
-          ></Form.Control>
-        </Form.Group>
-        {/* <Button variant="info" type="submit" onClick={toDelete}>
+      <div className="box">
+        <Form>
+          <Form.Group controlId="formGetSingleInfo">
+            <Form.Label>Get single restaurant</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="restaurant id?"
+              onChange={toReadySingleInfo}
+            ></Form.Control>
+          </Form.Group>
+          {/* <Button variant="info" type="submit" onClick={toDelete}>
           delete
         </Button> */}
-        {/* ボタンがFormの中にあるとつかえない？ */}
-      </Form>
+          {/* ボタンがFormの中にあるとつかえない？ */}
+        </Form>
 
-      <Button variant="info" type="submit" onClick={toGetSingleInfo}>
-        single
-      </Button>
-
+        <Button variant="info" type="submit" onClick={toGetSingleInfo}>
+          single
+        </Button>
+      </div>
       <div className="card_base">
         <div>{allInfo}</div>
         <div>{singleInfo}</div>
