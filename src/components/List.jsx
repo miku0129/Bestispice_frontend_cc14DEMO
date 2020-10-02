@@ -16,8 +16,8 @@ function List() {
   //more readable □
   const [allInfo, setAllInfo] = useState("");
   async function getAllInfo() {
-    let http = "http://localhost:5000/api/v1/restaurants/";
-    let req = axios.get(http);
+    // let http = "http://localhost:5000/api/v1/restaurants/";
+    let req = axios.get("http://localhost:5000/api/v1/restaurants/");
     let res = await req;
     let data = res.data;
     console.log(data);
