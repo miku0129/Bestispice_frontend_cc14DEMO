@@ -3,58 +3,45 @@ import "../style/List.css";
 import axios from "axios";
 import { Button, Card, Form } from "react-bootstrap";
 
-//list restaruant names
 function List() {
-  //---move hook up
-  //get id from placeholder
-  const [readySingleInfo, setReadySingleInfo] = useState("");
-  //back single restaurant info when click button
-  const [singleInfo, setSingleInfo] = useState("");
-  //move hook up---
 
-  //get all restaurant info
-  //more readable □
   const [allInfo, setAllInfo] = useState("");
-  async function getAllInfo() {
-    // let http = "http://localhost:5000/api/v1/restaurants/";
-    let req = axios.get("https://cc14polyglottal-app.herokuapp.com/api/v1/restaurants/");
-    let res = await req;
-    let data = res.data;
-    console.log(data);
-    let temp = [];
-    for (let key in data) {
-      console.log(data[key]);
-      temp.push(data[key]);
+
+  const [readySingleInfo, setReadySingleInfo] = useState("");
+  const [singleInfo, setSingleInfo] = useState("");
+
+  // get all restaurant info is rendered everytime when this page is rendered 
+  useEffect(() => {
+    async function getAllInfo() {
+      let req = axios.get("https://cc14polyglottal-app.herokuapp.com/api/v1/restaurants/");
+      let res = await req;
+      let data = res.data;
+      console.log(data);
+      let temp = [];
+      for (let key in data) {
+        console.log(data[key]);
+        temp.push(data[key]);
+      }
+      console.log(temp);
+      setAllInfo(
+        temp.map((el) => {
+          return (
+            <ul>
+              <li>ID: {el[1]}, Name: {el[0]}, Feature: {el[3]}</li>
+            </ul>
+          );
+        })
+      );
     }
-    console.log(temp);
-    setAllInfo(
-      temp.map((el) => {
-        return (
-          // <ul>
-          //   <li>id:{el[1]}</li>
-          //   <li>name:{el[0]}</li>
-          //   <li>feature:{el[3]}</li>
-          // </ul>
-          <Card style={{ sidth: "18rem" }}>
-            <Card.Body>
-              <Card.Title>{el[0]}</Card.Title>
-              <Card.Subtitle>{el[2]}</Card.Subtitle>
-              <Card.Text>ID: {el[1]}</Card.Text>
-            </Card.Body>
-          </Card>
-        );
-      })
-    );
-  }
+    getAllInfo()
+  } ,[])
 
   //get id from placeholder
-  // const [readySingleInfo, setReadySingleInfo] = useState("");
   function toReadySingleInfo(e) {
     setReadySingleInfo(e.target.value);
   }
   console.log(readySingleInfo);
   //back single restaurant info when click button
-  // const [singleInfo, setSingleInfo] = useState("");
   async function toGetSingleInfo() {
     const http = "https://cc14polyglottal-app.herokuapp.com/api/v1/restaurants/" + readySingleInfo;
     const req = axios.get(http);
@@ -67,16 +54,6 @@ function List() {
     }
     console.log(temp);
     setSingleInfo(
-      // <ul>
-      //   <li>name: {temp[3]}</li>
-      //   <li>feature: {temp[2]}</li>
-      //   <li>place: {temp[4]}</li>
-      //   <li>business hour: {temp[0]}</li>
-      //   <li>business hour(evening): {temp[1]}</li>
-      //   <li>regular holiday: {temp[5]}</li>
-      //   <li>TELL: {temp[6]}</li>
-      //   <li>URL: {temp[7]}</li>
-      // </ul>
       <Card style={{ width: "18rem" }}>
         <Card.Body>
           <Card.Title>{temp[3]}</Card.Title>
@@ -95,17 +72,16 @@ function List() {
   }
 
   return (
+    // form tag の中になくとも、挟まれているだけでボタンは機能しなくなってしまうことを発見した。
     <div className="container">
       <h2>Get restaurant info</h2>
       <div className="box">
         <Form>
           <Form.Group controlId="formGetAllInfo">
             <Form.Label>Get all names</Form.Label>
+            <div>{allInfo}</div>
           </Form.Group>
         </Form>
-        <Button variant="info" type="submit" onClick={getAllInfo}>
-          all
-        </Button>
       </div>
       <p></p>
       <div className="box">
@@ -118,18 +94,13 @@ function List() {
               onChange={toReadySingleInfo}
             ></Form.Control>
           </Form.Group>
-          {/* <Button variant="info" type="submit" onClick={toDelete}>
-          delete
-        </Button> */}
-          {/* ボタンがFormの中にあるとつかえない？ */}
+          {/* ボタンがFormのタグの中にあるとつかえない？ */}
         </Form>
-
         <Button variant="info" type="submit" onClick={toGetSingleInfo}>
           single
         </Button>
       </div>
       <div className="card_base">
-        <div>{allInfo}</div>
         <div>{singleInfo}</div>
       </div>
     </div>
