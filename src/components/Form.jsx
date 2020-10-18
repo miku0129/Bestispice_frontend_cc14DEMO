@@ -28,7 +28,7 @@ function List() {
   function toReadyUpdateId(e) {
     setReadyUpdateId(e.target.value);
   }
-  console.log(readyUpdateId);
+  // console.log(readyUpdateId);
   //get name
   const [readyUpdateName, setReadyUpdateName] = useState("");
   function toReadyUpdateName(e) {
@@ -56,55 +56,55 @@ function List() {
   function toAddInfoName(e) {
     setInfoName(e.target.value);
   }
-  console.log(addInfoName);
+  // console.log(addInfoName);
   //feature
   const [addInfoFeat, setInfoFeat] = useState("");
   function toAddInfoFeat(e) {
     setInfoFeat(e.target.value);
   }
-  console.log(addInfoFeat);
+  // console.log(addInfoFeat);
   //tell
   const [addInfoTell, setInfoTell] = useState("");
   function toAddInfoTell(e) {
     setInfoTell(e.target.value);
   }
-  console.log(addInfoTell);
+  // console.log(addInfoTell);
   //business hour1
   const [addInfoHour1, setInfoHour1] = useState("");
   function toAddInfoHour1(e) {
     setInfoHour1(e.target.value);
   }
-  console.log(addInfoHour1);
+  // console.log(addInfoHour1);
   //business hour2
   const [addInfoHour2, setInfoHour2] = useState("");
   function toAddInfoHour2(e) {
     setInfoHour2(e.target.value);
   }
-  console.log(addInfoHour2);
+  // console.log(addInfoHour2);
   //regular holiday
   const [addInfoHoliday, setInfoHoliday] = useState("");
   function toAddInfoHoliday(e) {
     setInfoHoliday(e.target.value);
   }
-  console.log(addInfoHoliday);
+  // console.log(addInfoHoliday);
   //place
   const [addInfoPlace, setInfoPlace] = useState("");
   function toAddInfoPlace(e) {
     setInfoPlace(e.target.value);
   }
-  console.log(addInfoPlace);
+  // console.log(addInfoPlace);
   //url
   const [addInfoUrl, setInfoUrl] = useState("");
   function toAddInfoUrl(e) {
     setInfoUrl(e.target.value);
   }
-  console.log(addInfoUrl);
+  // console.log(addInfoUrl);
 
   const [updatedMessage, setUpdateMessage] = useState("");
   async function toAdd() {
     // const params = new URLSearchParams();
 
-    console.log("I'm in toAdd");
+    // console.log("I'm in toAdd");
     // params.append("name", "miku");
 
     let req = axios.post("https://cc14polyglottal-app.herokuapp.com/api/v1/restaurants/", {
