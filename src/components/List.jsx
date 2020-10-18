@@ -30,18 +30,18 @@ function List() {
     setAllInfo(
       temp.map((el) => {
         return (
-          // <ul>
-          //   <li>id:{el[1]}</li>
-          //   <li>name:{el[0]}</li>
-          //   <li>feature:{el[3]}</li>
-          // </ul>
-          <Card style={{ sidth: "18rem" }}>
-            <Card.Body>
-              <Card.Title>{el[0]}</Card.Title>
-              <Card.Subtitle>{el[2]}</Card.Subtitle>
-              <Card.Text>ID: {el[1]}</Card.Text>
-            </Card.Body>
-          </Card>
+          <ul>
+            <li>id:{el[1]}</li>
+            <li>name:{el[0]}</li>
+            <li>feature:{el[3]}</li>
+          </ul>
+          // <Card style={{ sidth: "18rem" }}>
+          //   <Card.Body>
+          //     <Card.Title>{el[0]}</Card.Title>
+          //     <Card.Subtitle>{el[2]}</Card.Subtitle>
+          //     <Card.Text>ID: {el[1]}</Card.Text>
+          //   </Card.Body>
+          // </Card>
         );
       })
     );
