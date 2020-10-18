@@ -11,6 +11,7 @@ function List() {
   const [singleInfo, setSingleInfo] = useState("");
 
   // get all restaurant info is rendered everytime when this page is rendered 
+  useEffect(() => {
     async function getAllInfo() {
       let req = axios.get("https://cc14polyglottal-app.herokuapp.com/api/v1/restaurants/");
       let res = await req;
@@ -32,7 +33,8 @@ function List() {
         })
       );
     }
-
+    getAllInfo()
+  } ,[])
 
   //get id from placeholder
   function toReadySingleInfo(e) {
@@ -81,11 +83,6 @@ function List() {
           </Form.Group>
         </Form>
       </div>
-
-      <Button variant="info" type="submit" onClick={getAllInfo}>
-          all
-        </Button>
-
       <p></p>
       <div className="box">
         <Form>
