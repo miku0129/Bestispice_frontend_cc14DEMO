@@ -34,7 +34,7 @@ function List() {
   function toReadyUpdateName(e) {
     setReadyUpdateName(e.target.value);
   }
-  console.log(readyUpdateName);
+  // console.log(readyUpdateName);
   //set update name with given id and name
   const [updateMessage, setUpdateData] = useState("");
   async function toUpdate() {
@@ -123,7 +123,7 @@ function List() {
     console.log("hello");
     setUpdateMessage(result.message);
   }
-  console.log(updatedMessage);
+  // console.log(updatedMessage);
 
   return (
     <div>

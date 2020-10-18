@@ -40,7 +40,7 @@ function List() {
   function toReadySingleInfo(e) {
     setReadySingleInfo(e.target.value);
   }
-  console.log(readySingleInfo);
+  // console.log(readySingleInfo);
   //back single restaurant info when click button
   async function toGetSingleInfo() {
     const http = "https://cc14polyglottal-app.herokuapp.com/api/v1/restaurants/" + readySingleInfo;
