@@ -26,7 +26,7 @@ function List() {
       setAllInfo(
         temp.map((el) => {
           return (
-            <ul>
+            <ul key={el[1]}>
               <li>ID: {el[1]}, Name: {el[0]}, Feature: {el[3]}</li>
             </ul>
           );
