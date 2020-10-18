@@ -14,7 +14,7 @@ function List() {
   const [deleteMessage, setDeleteMessage] = useState("");
   async function toDelete() {
     console.log(readyDelete);
-    let http = "http://localhost:5000/api/v1/restaurants/" + readyDelete;
+    let http = "https://cc14polyglottal-app.herokuapp.com/api/v1/restaurants/" + readyDelete;
     let req = axios.delete(http);
     let res = await req;
     let data = res.data;
@@ -39,7 +39,7 @@ function List() {
   const [updateMessage, setUpdateData] = useState("");
   async function toUpdate() {
     let http =
-      "http://localhost:5000/api/v1/restaurants/" +
+      "https://cc14polyglottal-app.herokuapp.com/api/v1/restaurants/" +
       readyUpdateId +
       "/" +
       readyUpdateName;
@@ -107,7 +107,7 @@ function List() {
     console.log("I'm in toAdd");
     // params.append("name", "miku");
 
-    let req = axios.post("http://localhost:5000/api/v1/restaurants/", {
+    let req = axios.post("https://cc14polyglottal-app.herokuapp.com/api/v1/restaurants/", {
       name: addInfoName,
       feature: addInfoFeat,
       tell: addInfoTell,

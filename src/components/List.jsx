@@ -17,7 +17,7 @@ function List() {
   const [allInfo, setAllInfo] = useState("");
   async function getAllInfo() {
     // let http = "http://localhost:5000/api/v1/restaurants/";
-    let req = axios.get("http://localhost:5000/api/v1/restaurants/");
+    let req = axios.get("https://cc14polyglottal-app.herokuapp.com/api/v1/restaurants/");
     let res = await req;
     let data = res.data;
     console.log(data);
@@ -56,7 +56,7 @@ function List() {
   //back single restaurant info when click button
   // const [singleInfo, setSingleInfo] = useState("");
   async function toGetSingleInfo() {
-    const http = "http://localhost:5000/api/v1/restaurants/" + readySingleInfo;
+    const http = "https://cc14polyglottal-app.herokuapp.com/api/v1/restaurants/" + readySingleInfo;
     const req = axios.get(http);
     const res = await req;
     const data = res.data;
