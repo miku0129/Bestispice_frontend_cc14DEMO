@@ -103,9 +103,9 @@ function List() {
             <Form.Label>Get all names</Form.Label>
           </Form.Group>
         </Form>
-        <Button variant="info" type="submit" onClick={getAllInfo}>
+        {/* <Button variant="info" type="submit" onClick={getAllInfo}>
           all
-        </Button>
+        </Button> */}
       </div>
       <p></p>
       <div className="box">
@@ -123,6 +123,12 @@ function List() {
         </Button> */}
           {/* ボタンがFormの中にあるとつかえない？ */}
         </Form>
+
+        <Button variant="info" type="submit" onClick={getAllInfo}>
+          all
+        </Button>
+
+        
 
         <Button variant="info" type="submit" onClick={toGetSingleInfo}>
           single
