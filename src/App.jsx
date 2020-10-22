@@ -1,30 +1,23 @@
 import React from "react";
 import "./App.css";
-import Nav from "./components/Nav";
-import List from "./components/List.jsx";
-import Form from "./components/Form.jsx";
+import Nav from "./components/Nav/Nav";
+// import List from "./components/List/List";
+// import Form from "./components/Form/Form";
 import axios from "axios";
 import { Navbar } from "react-bootstrap";
 
 function App() {
-  //   async function test() {
-  //     let req = axios.get("http://localhost:5000/api/v1/restaurants/1");
-  //     let res = await req;
-  //     let data = res.data;
-  //     console.log(data);
-  //   }
-  //   test();
 
   return (
     <div className="App wrapper">
       <header>
         <h3>Spicy life ❤️‍🔥</h3>
       </header>
-      {/* <div className="container"> */}
+      <div className="container">
       <Nav />
-      <List />
-      <Form />
-      {/* </div> */}
+      {/* <List />
+      <Form /> */}
+      </div>
       <Navbar bg="light">
         <Navbar.Brand className="footer_logo">
           <img
