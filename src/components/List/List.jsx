@@ -5,6 +5,7 @@ import axios from "axios";
 export default function List() {
 
     const [allInfo, setAllInfo] = useState("");
+    const [restaurantId, setRestaurantId] = useState(""); 
     
     //get all restaurant info  
     useEffect(() => {
@@ -31,13 +32,33 @@ export default function List() {
       }
       getAllInfo()
     } ,[])
-  
+
+    //get single restaurant info => jump to other page for detail 
+    async function getSingleInfo() {
+      console.log(restaurantId)
+      const res = await axios.get(`https://cc14polyglottal-app.herokuapp.com/api/v1/restaurants/${restaurantId}`);
+      const data = res.data;
+      console.log(data);
+      let temp = [];
+      for (let key in data) {
+        temp.push(data[key]);
+      }
+      console.log(temp);
+    }
+    
 
     return (
         <div className="container">
-            <dive>
+            <div className="box">
                 {allInfo}
-            </dive>
+            </div>
+            <div className="box">
+              <label>
+                <span>more info</span>
+                <input type="text" name="id" className="textField" placeholder="restaurant ID here" onChange={e=>{console.log(e.target.value); setRestaurantId(e.target.value)}}></input>
+              </label>
+              <input type="submit" value="submit" onClick={getSingleInfo}/>
+            </div>
         </div>
 
     )
