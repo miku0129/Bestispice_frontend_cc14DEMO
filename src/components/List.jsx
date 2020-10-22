@@ -46,16 +46,16 @@ function List() {
     // const http = "https://cc14polyglottal-app.herokuapp.com/api/v1/restaurants/" + readySingleInfo;
     // const req = axios.get(http);
     // const http = "https://cc14polyglottal-app.herokuapp.com/api/v1/restaurants/" + readySingleInfo;
-    const req = axios.get(`https://cc14polyglottal-app.herokuapp.com/api/v1/restaurants/${readySingleInfo}`);
+    // const req = axios.get(`https://cc14polyglottal-app.herokuapp.com/api/v1/restaurants/${readySingleInfo}`);
 
-    const res = await req;
-    const data = res.data;
-    console.log(data);
-    let temp = [];
-    for (let key in data) {
-      temp.push(data[key]);
-    }
-    console.log(temp);
+    // const res = await req;
+    // const data = res.data;
+    // console.log(data);
+    // let temp = [];
+    // for (let key in data) {
+    //   temp.push(data[key]);
+    // }
+    console.log("hello");
     setSingleInfo(
       // <Card style={{ width: "18rem" }}>
       //   <Card.Body>
