@@ -42,11 +42,10 @@ function List() {
   // }
   // console.log(readySingleInfo);
   //back single restaurant info when click button
-  // async function toGetSingleInfo() {
+  async function toGetSingleInfo() {
     // const http = "https://cc14polyglottal-app.herokuapp.com/api/v1/restaurants/" + readySingleInfo;
     // const req = axios.get(http);
-    // const http = "https://cc14polyglottal-app.herokuapp.com/api/v1/restaurants/" + readySingleInfo;
-    // const req = axios.get(`https://cc14polyglottal-app.herokuapp.com/api/v1/restaurants/${readySingleInfo}`);
+    const req = axios.get(`https://cc14polyglottal-app.herokuapp.com/api/v1/restaurants/${readySingleInfo}`);
 
     // const res = await req;
     // const data = res.data;
@@ -54,7 +53,7 @@ function List() {
     // let temp = [];
     // for (let key in data) {
     //   temp.push(data[key]);
-    // }
+    }
     console.log("hello");
     // setSingleInfo(
       // <Card style={{ width: "18rem" }}>
