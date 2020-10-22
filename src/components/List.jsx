@@ -37,12 +37,12 @@ function List() {
   // } ,[])
 
   //get id from placeholder
-  function toReadySingleInfo(e) {
-    setReadySingleInfo(e.target.value);
-  }
+  // function toReadySingleInfo(e) {
+  //   setReadySingleInfo(e.target.value);
+  // }
   // console.log(readySingleInfo);
   //back single restaurant info when click button
-  async function toGetSingleInfo() {
+  // async function toGetSingleInfo() {
     // const http = "https://cc14polyglottal-app.herokuapp.com/api/v1/restaurants/" + readySingleInfo;
     // const req = axios.get(http);
     // const http = "https://cc14polyglottal-app.herokuapp.com/api/v1/restaurants/" + readySingleInfo;
@@ -56,7 +56,7 @@ function List() {
     //   temp.push(data[key]);
     // }
     console.log("hello");
-    setSingleInfo(
+    // setSingleInfo(
       // <Card style={{ width: "18rem" }}>
       //   <Card.Body>
       //     <Card.Title>{temp[3]}</Card.Title>
@@ -71,13 +71,13 @@ function List() {
       //     </ul>
       //   </Card.Body>
       // </Card>
-    );
+    // );
   }
 
   return (
     // form tag の中になくとも、挟まれているだけでボタンは機能しなくなってしまうことを発見した。
-    <div className="container">
-      <h2>hello miku</h2>
+    // <div className="container">
+    //   <h2>hello miku</h2>
       {/* <h2>Get restaurant info</h2>
       <div className="box">
         <Form>
@@ -104,9 +104,9 @@ function List() {
           single
         </Button> */}
       {/* </div> */}
-      <div className="card_base">
+      {/* <div className="card_base">
         <div>{singleInfo}</div>
-      </div>
+      </div> */}
     </div>
   );
 }
