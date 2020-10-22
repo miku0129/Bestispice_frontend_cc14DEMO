@@ -11,18 +11,18 @@ function List() {
   const [singleInfo, setSingleInfo] = useState("");
 
   // // get all restaurant info is rendered everytime when this page is rendered 
-  // useEffect(() => {
-  //   async function getAllInfo() {
-  //     let req = axios.get("https://cc14polyglottal-app.herokuapp.com/api/v1/restaurants/");
-  //     let res = await req;
-  //     let data = res.data;
-  //     console.log(data);
-  //     let temp = [];
-  //     for (let key in data) {
-  //       console.log(data[key]);
-  //       temp.push(data[key]);
-  //     }
-  //     console.log(temp);
+  useEffect(() => {
+    async function getAllInfo() {
+      let req = axios.get("https://cc14polyglottal-app.herokuapp.com/api/v1/restaurants/");
+      let res = await req;
+      let data = res.data;
+      console.log(data);
+      let temp = [];
+      for (let key in data) {
+        console.log(data[key]);
+        temp.push(data[key]);
+      }
+      console.log(temp);
   //     setAllInfo(
   //       temp.map((el) => {
   //         return (
@@ -32,9 +32,9 @@ function List() {
   //         );
   //       })
   //     );
-  //   }
-  //   getAllInfo()
-  // } ,[])
+    }
+    getAllInfo()
+  } ,[])
 
   //get id from placeholder
   // function toReadySingleInfo(e) {
