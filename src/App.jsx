@@ -2,7 +2,8 @@ import React from "react";
 import "./App.css";
 import Nav from "./components/Nav/Nav";
 import List from "./components/List/List";
-import Form from "./components/Form/Form";
+import Map from "./components/Map/Map";
+// import Form from "./components/Form/Form";
 import { Navbar } from "react-bootstrap";
 
 export default function App() {
@@ -14,6 +15,7 @@ export default function App() {
         <Nav />
       </header>
       <List />
+      <Map />
       {/* <Form /> */}
 
       {/* <Navbar bg="light">
