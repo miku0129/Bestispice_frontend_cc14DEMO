@@ -1,11 +1,17 @@
 import React, { useState, useEffect } from "react";
 import "../List/List.css";
+import Map from "../Map/Map"; 
 import axios from "axios";
+import { Link } from "react-router-dom"; 
+import useReactRouter from "use-react-router";  
+
 
 export default function List() {
 
     const [allInfo, setAllInfo] = useState("");
     const [restaurantId, setRestaurantId] = useState(""); 
+
+    const { history, location, match } = useReactRouter(); 
     
     //get all restaurant info  
     useEffect(() => {
@@ -57,8 +63,10 @@ export default function List() {
                 <span>more info</span>
                 <input type="text" name="id" className="textField" placeholder="restaurant ID here" onChange={e=>{console.log(e.target.value); setRestaurantId(e.target.value)}}></input>
               </label>
-              <input type="submit" value="submit" onClick={getSingleInfo}/>
+              {/* <button type="submit" value="submit"><Link to={`/RestaurantCard/${restaurantId}`}>submit</Link></button> */}
+              <input type="submit" value="submit" onClick={()=>history.push(`/RestaurantCard/${restaurantId}`)} />
             </div>
+            <Map />
         </div>
 
     )

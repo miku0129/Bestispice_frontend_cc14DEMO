@@ -2,9 +2,11 @@ import React from "react";
 import "./App.css";
 import Nav from "./components/Nav/Nav";
 import List from "./components/List/List";
-import Map from "./components/Map/Map";
+import RestaurantCard from "./components/RestaurantCard/RestaurantCard";
 // import Form from "./components/Form/Form";
 import { Navbar } from "react-bootstrap";
+import { BrowserRouter as Router, Route, Switch} from "react-router-dom"; 
+import useReactRouter from "use-react-router";  
 
 export default function App() {
 
@@ -14,9 +16,13 @@ export default function App() {
         <h3>Spicy life ❤️‍🔥</h3>
         <Nav />
       </header>
-      <List />
-      <Map />
-      {/* <Form /> */}
+      <Router>
+        <Switch>
+          <List path="/" component={List} exact />
+          <Route path="/restaurantCard/:id" component={RestaurantCard} exact />
+          {/* <Form path="/Form" component={Form} exact /> */}
+        </Switch>
+      </Router>
 
       {/* <Navbar bg="light">
         <Navbar.Brand className="footer_logo">
