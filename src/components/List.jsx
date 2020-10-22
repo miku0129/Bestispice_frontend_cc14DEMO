@@ -100,9 +100,9 @@ function List() {
           </Form.Group> */}
           {/* ボタンがFormのタグの中にあるとつかえない？ */}
         {/* </Form> */}
-        <Button variant="info" type="submit" onClick={toGetSingleInfo}>
+        {/* <Button variant="info" type="submit" onClick={toGetSingleInfo}>
           single
-        </Button>
+        </Button> */}
       {/* </div> */}
       <div className="card_base">
         <div>{singleInfo}</div>
