@@ -43,8 +43,11 @@ function List() {
   // console.log(readySingleInfo);
   //back single restaurant info when click button
   async function toGetSingleInfo() {
-    const http = "https://cc14polyglottal-app.herokuapp.com/api/v1/restaurants/" + readySingleInfo;
-    const req = axios.get(http);
+    // const http = "https://cc14polyglottal-app.herokuapp.com/api/v1/restaurants/" + readySingleInfo;
+    // const req = axios.get(http);
+    // const http = "https://cc14polyglottal-app.herokuapp.com/api/v1/restaurants/" + readySingleInfo;
+    const req = axios.get(`https://cc14polyglottal-app.herokuapp.com/api/v1/restaurants/${readySingleInfo}`);
+
     const res = await req;
     const data = res.data;
     console.log(data);
