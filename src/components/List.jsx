@@ -72,23 +72,25 @@ function List() {
       //   </Card.Body>
       // </Card>
     // );
-  }
+  // }
 
   return (
+    <h2>hello</h2>
     // form tag の中になくとも、挟まれているだけでボタンは機能しなくなってしまうことを発見した。
     // <div className="container">
     //   <h2>hello miku</h2>
-      {/* <h2>Get restaurant info</h2>
-      <div className="box">
-        <Form>
-          <Form.Group controlId="formGetAllInfo">
-            <Form.Label>Get all names</Form.Label>
-            <div>{allInfo}</div>
-          </Form.Group>
-        </Form>
-      </div>
-      <p></p> */}
-       {/* <div className="box">
+      // {/* <h2>Get restaurant info</h2>
+      // <div className="box">
+      //   <Form>
+      //     <Form.Group controlId="formGetAllInfo">
+      //       <Form.Label>Get all names</Form.Label>
+      //       <div>{allInfo}</div>
+      //     </Form.Group>
+      //   </Form>
+      // </div>
+      // <p></p> */}
+    // {
+       /* <div className="box">
          <Form>
            <Form.Group controlId="formGetSingleInfo">
              <Form.Label>Get single restaurant</Form.Label>
@@ -97,17 +99,17 @@ function List() {
               placeholder="restaurant id?"
               onChange={toReadySingleInfo}
             ></Form.Control>
-          </Form.Group> */}
-          {/* ボタンがFormのタグの中にあるとつかえない？ */}
-        {/* </Form> */}
-        {/* <Button variant="info" type="submit" onClick={toGetSingleInfo}>
+          </Form.Group> */
+          /* ボタンがFormのタグの中にあるとつかえない？ */
+        /* </Form> */
+        /* <Button variant="info" type="submit" onClick={toGetSingleInfo}>
           single
-        </Button> */}
-      {/* </div> */}
-      {/* <div className="card_base">
+        </Button> */
+      /* </div> */
+      /* <div className="card_base">
         <div>{singleInfo}</div>
-      </div> */}
-    </div>
+      </div> */
+  //   </div>
   );
 }
 
