@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "../style/Form.css";
+// import "../style/Form.css";
 import axios from "axios";
 import { Form, Button, Row, Col } from "react-bootstrap";
 

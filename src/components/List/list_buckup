@@ -74,7 +74,6 @@ function List() {
   // }
 
   return (
-    <h2>hello</h2>
     // form tag の中になくとも、挟まれているだけでボタンは機能しなくなってしまうことを発見した。
     // <div className="container">
     //   <h2>hello miku</h2>
