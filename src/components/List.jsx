@@ -54,20 +54,20 @@ function List() {
     }
     console.log(temp);
     setSingleInfo(
-      <Card style={{ width: "18rem" }}>
-        <Card.Body>
-          <Card.Title>{temp[3]}</Card.Title>
-          <Card.Subtitle>{temp[2]}</Card.Subtitle>
-          <ul>
-            <li>place: {temp[4]}</li>
-            <li>business hour: {temp[0]}</li>
-            <li>business hour(evening): {temp[1]}</li>
-            <li>regular holiday: {temp[5]}</li>
-            <li>TELL: {temp[6]}</li>
-            <li>URL: {temp[7]}</li>
-          </ul>
-        </Card.Body>
-      </Card>
+      // <Card style={{ width: "18rem" }}>
+      //   <Card.Body>
+      //     <Card.Title>{temp[3]}</Card.Title>
+      //     <Card.Subtitle>{temp[2]}</Card.Subtitle>
+      //     <ul>
+      //       <li>place: {temp[4]}</li>
+      //       <li>business hour: {temp[0]}</li>
+      //       <li>business hour(evening): {temp[1]}</li>
+      //       <li>regular holiday: {temp[5]}</li>
+      //       <li>TELL: {temp[6]}</li>
+      //       <li>URL: {temp[7]}</li>
+      //     </ul>
+      //   </Card.Body>
+      // </Card>
     );
   }
 
