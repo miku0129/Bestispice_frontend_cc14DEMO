@@ -77,7 +77,7 @@ function List() {
   return (
     // form tag の中になくとも、挟まれているだけでボタンは機能しなくなってしまうことを発見した。
     <div className="container">
-      <h2>hello</h2>
+      <h2>hello miku</h2>
       {/* <h2>Get restaurant info</h2>
       <div className="box">
         <Form>
@@ -99,14 +99,14 @@ function List() {
             ></Form.Control>
           </Form.Group> */}
           {/* ボタンがFormのタグの中にあるとつかえない？ */}
-        {/* </Form>
+        {/* </Form> */}
         <Button variant="info" type="submit" onClick={toGetSingleInfo}>
           single
         </Button>
-      </div> */}
-      {/* <div className="card_base">
+      {/* </div> */}
+      <div className="card_base">
         <div>{singleInfo}</div>
-      </div> */}
+      </div>
     </div>
   );
 }
