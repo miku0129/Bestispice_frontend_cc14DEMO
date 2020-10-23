@@ -3,7 +3,6 @@ import "./App.css";
 import Nav from "./components/Nav/Nav";
 import List from "./components/List/List";
 import RestaurantCard from "./components/RestaurantCard/RestaurantCard";
-import Form from "./components/Form/Form";
 import { Navbar } from "react-bootstrap";
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom"; 
 import useReactRouter from "use-react-router";  
@@ -13,14 +12,13 @@ export default function App() {
   return (
     <div className="App wrapper">
       <header>
-        <h3>Spicy life ❤️‍🔥</h3>
+        <h3>Spicy life</h3>
         <Nav />
       </header>
       <Router>
         <Switch>
           <Route path="/" component={List} exact />
           <Route path="/restaurantCard/:id" component={RestaurantCard} exact />
-          <Route path="/form" component={Form} exact />
         </Switch>
       </Router>
 

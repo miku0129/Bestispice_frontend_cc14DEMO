@@ -3,7 +3,7 @@ import "./Restaurant.css";
 import axios from "axios"; 
 import { GoogleMap, Marker } from "@react-google-maps/api";
 import useReactRouter from "use-react-router";  
-import curry from "../../image/curry2-removebg-preview.png"; 
+import curry from "../../image/cuteStamp.jpg"; 
 
 
 export default function RestaurantCard({match}){
@@ -55,6 +55,7 @@ useEffect(()=>{
         initMap(); 
             },[])
 
+            console.log(info)
 
     return(
         //miku: add picture image here 
@@ -71,6 +72,9 @@ useEffect(()=>{
                 <li>comment: {info[8]}</li>
 
            </ul>
+           <div>
+           <input type="submit" value="HOME" onClick={()=>history.push(`/`)} />
+           </div>
            <div className="map_wrapper">
                 <GoogleMap
                 mapContainerStyle={mapStyles}
@@ -87,7 +91,6 @@ useEffect(()=>{
                 }
                 </GoogleMap>
         </div>
-           <input type="submit" value="HOME" onClick={()=>history.push(`/`)} />
         </div>
         
     )

@@ -1,7 +1,7 @@
 import React,{ useState, useEffect } from 'react';
 import { GoogleMap, Marker } from '@react-google-maps/api';
 import axios from "axios"; 
-import curry from "../../image/curry2-removebg-preview.png"; 
+import curry from "../../image/cuteStamp.jpg"; 
 
 
 export default function Map(){
@@ -30,51 +30,37 @@ export default function Map(){
           var geocoder = new window.google.maps.Geocoder();
 
           //get addresses from restaurants, update the variable  
-            let req = axios.get("https://cc14polyglottal-app.herokuapp.com/api/v1/restaurants/");
-            let res = await req;
+            let res = await axios.get("https://cc14polyglottal-app.herokuapp.com/api/v1/restaurants/");
             let data = res.data;
+            let temp = []; 
             for (let key in data) {
-              // temp.push(data[key])
-              geocoder.geocode({address: data[key][4]}, function(results, status){
-                console.log("item?",data[key]); 
-                console.log(results)
-                console.log("status?",status)
-                if(status === "OK" && results[0]){
-                  const currentLat = results[0].geometry.location.lat();
-                  const currentLng = results[0].geometry.location.lng();
-                  return setMarker(<Marker position={{lat: currentLat, lng: currentLng}} icon={curry} />)
-                    }
-                  })
+              temp.push(data[key][3])
+            }
+            let arr = []; 
+            console.log(temp)
+            temp.map(item=>{
+              // console.log(item[3])
+                return (
+                  geocoder.geocode({address:item}, function(results, status){
+                    console.log(item)
 
-                 }
-
-          // initialize google-map, set lat and lng
-          // Only Nong Inlay shown 
-          // var geocoder = new window.google.maps.Geocoder();
-
-            // temp.map((item)=>{
-            //   console.log(item)
-
-            //   return (geocoder.geocode({address: item[4]}, function(results, status){
-            //     console.log("item?",item); 
-            //     console.log(results)
-            //     console.log("status?",status)
-            //     if(status === "OK" && results[0]){
-            //       const currentLat = results[0].geometry.location.lat();
-            //       const currentLng = results[0].geometry.location.lng();
-            //       return (<Marker key={item[1]} position={{lat: currentLat, lng: currentLng}} icon={curry} />)
-            //         }
-
-            //       })
-
-            //     )
-
-            //     })
-
-            };
-        initMap();  
-            }, [])
-
+                    console.log("results",results)
+                    if(status === "OK" && results[0]){
+                      let currentLat = results[0].geometry.location.lat();
+                      let currentLng = results[0].geometry.location.lng();
+                      let letLng = { lat: currentLat, lng: currentLng}; 
+                      console.log(letLng)
+                      arr.push(letLng)
+                        }
+                        console.log("arr?",arr)
+                        setMarker(arr.map(item=>{
+                          return (<Marker position={item} icon={curry} />)
+                        }))
+                          })
+                        )})
+                      }
+                initMap()
+                    }, [])
 
       return (
         <div className="map_wrapper">

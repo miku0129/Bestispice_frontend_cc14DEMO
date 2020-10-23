@@ -253,7 +253,6 @@ function List() {
             delete
           </Button>
         </div>
-        <input type="submit" value="click" onClick={()=>history.push(`/`)} />
       </div>
     </div>
   );
