@@ -68,6 +68,8 @@ useEffect(()=>{
                 <li>regular holiday: {info[5]}</li>
                 <li>TELL: {info[6]}</li>
                 <li>URL: {info[7]}</li>
+                <li>comment: {info[8]}</li>
+
            </ul>
            <div className="map_wrapper">
                 <GoogleMap

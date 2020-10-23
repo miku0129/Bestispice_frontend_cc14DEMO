@@ -2,21 +2,19 @@ import React, { useState, useEffect } from "react";
 // import "../style/Form.css";
 import axios from "axios";
 import { Form, Button, Row, Col } from "react-bootstrap";
+import useReactRouter from "use-react-router";  
 
-//Form
+
 function List() {
-  //delete
-  const [readyDelete, setReadyDelete] = useState("");
-  function toReadyDelete(e) {
-    console.log(e.target.value);
-    setReadyDelete(e.target.value);
-  }
+
+  const { history, location, match } = useReactRouter(); 
+
+  //delete 
+  const [deleteId, setDeleteId] = useState("");
   const [deleteMessage, setDeleteMessage] = useState("");
+
   async function toDelete() {
-    console.log(readyDelete);
-    let http = "https://cc14polyglottal-app.herokuapp.com/api/v1/restaurants/" + readyDelete;
-    let req = axios.delete(http);
-    let res = await req;
+    let res = await axios.delete(`https://cc14polyglottal-app.herokuapp.com/api/v1/restaurants/${deleteId}`);
     let data = res.data;
     console.log(data);
     setDeleteMessage(data.message);
@@ -24,10 +22,10 @@ function List() {
 
   //update name
   //get id
-  const [readyUpdateId, setReadyUpdateId] = useState("");
-  function toReadyUpdateId(e) {
-    setReadyUpdateId(e.target.value);
-  }
+  // const [readyUpdateId, setReadyUpdateId] = useState("");
+  // function toReadyUpdateId(e) {
+  //   setReadyUpdateId(e.target.value);
+  // }
   // console.log(readyUpdateId);
   //get name
   const [readyUpdateName, setReadyUpdateName] = useState("");
@@ -37,75 +35,59 @@ function List() {
   // console.log(readyUpdateName);
   //set update name with given id and name
   const [updateMessage, setUpdateData] = useState("");
-  async function toUpdate() {
-    let http =
-      "https://cc14polyglottal-app.herokuapp.com/api/v1/restaurants/" +
-      readyUpdateId +
-      "/" +
-      readyUpdateName;
-    let req = axios.put(http);
-    let res = await req;
-    let data = res.data;
-    console.log(data);
-    setUpdateData(data.message);
-  }
+  // async function toUpdate() {
+  //   let http =
+  //     "https://cc14polyglottal-app.herokuapp.com/api/v1/restaurants/" +
+  //     readyUpdateId +
+  //     "/" +
+  //     readyUpdateName;
+  //   let req = axios.put(http);
+  //   let res = await req;
+  //   let data = res.data;
+  //   console.log(data);
+  //   setUpdateData(data.message);
+  // }
+
 
   //post new restaurant
-  //name
   const [addInfoName, setInfoName] = useState("");
-  function toAddInfoName(e) {
-    setInfoName(e.target.value);
-  }
   // console.log(addInfoName);
+
   //feature
   const [addInfoFeat, setInfoFeat] = useState("");
-  function toAddInfoFeat(e) {
-    setInfoFeat(e.target.value);
-  }
   // console.log(addInfoFeat);
+
   //tell
   const [addInfoTell, setInfoTell] = useState("");
-  function toAddInfoTell(e) {
-    setInfoTell(e.target.value);
-  }
   // console.log(addInfoTell);
+
   //business hour1
   const [addInfoHour1, setInfoHour1] = useState("");
-  function toAddInfoHour1(e) {
-    setInfoHour1(e.target.value);
-  }
   // console.log(addInfoHour1);
+
   //business hour2
   const [addInfoHour2, setInfoHour2] = useState("");
-  function toAddInfoHour2(e) {
-    setInfoHour2(e.target.value);
-  }
   // console.log(addInfoHour2);
+
   //regular holiday
   const [addInfoHoliday, setInfoHoliday] = useState("");
-  function toAddInfoHoliday(e) {
-    setInfoHoliday(e.target.value);
-  }
   // console.log(addInfoHoliday);
+
   //place
   const [addInfoPlace, setInfoPlace] = useState("");
-  function toAddInfoPlace(e) {
-    setInfoPlace(e.target.value);
-  }
   // console.log(addInfoPlace);
+
   //url
   const [addInfoUrl, setInfoUrl] = useState("");
-  function toAddInfoUrl(e) {
-    setInfoUrl(e.target.value);
-  }
   // console.log(addInfoUrl);
 
-  const [updatedMessage, setUpdateMessage] = useState("");
-  async function toAdd() {
-    // const params = new URLSearchParams();
+  //comment
+  const [addInfoComment, setInfoComment] = useState("");
+  // console.log(addInfoComment);
 
-    // console.log("I'm in toAdd");
-    // params.append("name", "miku");
+  const [updatedMessage, setUpdateMessage] = useState("");
+
+  async function addNewPost() {
 
     let req = axios.post("https://cc14polyglottal-app.herokuapp.com/api/v1/restaurants/", {
       name: addInfoName,
@@ -116,6 +98,7 @@ function List() {
       regular_holiday: addInfoHoliday,
       place: addInfoPlace,
       url: addInfoUrl,
+      comments: addInfoComment
     });
     let res = await req;
     let result = res.data;
@@ -135,7 +118,7 @@ function List() {
             <Form.Control
               type="text"
               placeholder="Enter name"
-              onChange={toAddInfoName}
+              onChange={e=>{setInfoName(e.target.value)}}
             />
           </Form.Group>
           <Form.Group controlId="formFeature">
@@ -143,7 +126,7 @@ function List() {
             <Form.Control
               type="text"
               placeholder="Enter feature"
-              onChange={toAddInfoFeat}
+              onChange={e=>{setInfoFeat(e.target.value)}}
             />
           </Form.Group>
           <Form.Group controlId="formTell">
@@ -151,10 +134,9 @@ function List() {
             <Form.Control
               type="text"
               placeholder="Enter tell"
-              onChange={toAddInfoTell}
+              onChange={e=>{setInfoTell(e.target.value)}}
             />
           </Form.Group>
-
           <Row>
             <Col>
               <Form.Group controlId="formHour1">
@@ -162,7 +144,7 @@ function List() {
                 <Form.Control
                   type="text"
                   placeholder="Enter bussiness hour"
-                  onChange={toAddInfoHour1}
+                  onChange={e=>{setInfoHour1(e.target.value)}}
                 />
               </Form.Group>
             </Col>
@@ -172,7 +154,7 @@ function List() {
                 <Form.Control
                   type="text"
                   placeholder="Enter evening business hour"
-                  onChange={toAddInfoHour2}
+                  onChange={e=>{setInfoHour2(e.target.value)}}
                 />
               </Form.Group>
             </Col>
@@ -182,7 +164,7 @@ function List() {
             <Form.Control
               type="text"
               placeholder="Enter regular holiday"
-              onChange={toAddInfoHoliday}
+              onChange={e=>{setInfoHoliday(e.target.value)}}
             />
           </Form.Group>
           <Form.Group controlId="formPlace">
@@ -190,7 +172,7 @@ function List() {
             <Form.Control
               type="text"
               placeholder="Enter Place"
-              onChange={toAddInfoPlace}
+              onChange={e=>{setInfoPlace(e.target.value)}}
             />
           </Form.Group>
           <Form.Group controlId="formUrl">
@@ -198,130 +180,24 @@ function List() {
             <Form.Control
               type="text"
               placeholder="Enter URL"
-              onChange={toAddInfoUrl}
+              onChange={e=>{setInfoUrl(e.target.value)}}
             />
           </Form.Group>
+          <Form.Group controlId="formComment">
+            <Form.Label>Comment</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Comment?"
+              onChange={e=>{setInfoComment(e.target.value)}}
+            />
+          </Form.Group>
+
           <Form.Text>{updatedMessage}</Form.Text>
         </Form>
-        <Button variant="success" type="submit" onClick={toAdd}>
+        <Button variant="success" type="submit" onClick={addNewPost}>
           add
         </Button>
       </div>
-      {/* <div className="edit_restaurant_info container">
-        <h2>edit restaurant data</h2>
-        <ul className="add_informaton_form">
-          <form class="edit_form">
-            <li>
-              <label>
-                <span>add new restaurant</span>
-              </label>
-            </li>
-            <li>
-              <label>
-                <span>restaurant name</span>
-                <input
-                  type="text"
-                  name="add"
-                  class="textfield"
-                  placeholder="restaurant name?"
-                  onChange={toAddInfoName}
-                ></input>
-              </label>
-            </li>
-            <li>
-              <label>
-                <span>feature</span>
-                <input
-                  type="text"
-                  name="add"
-                  class="textfield"
-                  placeholder="restaurant feature?"
-                  onChange={toAddInfoFeat}
-                ></input>
-              </label>
-            </li>
-            <li>
-              <label>
-                <span>tell</span>
-                <input
-                  type="text"
-                  name="add"
-                  class="textfield"
-                  placeholder="restaurant tell?"
-                  onChange={toAddInfoTell}
-                ></input>
-              </label>
-            </li>
-            <li>
-              <label>
-                <span>business hours1</span>
-                <input
-                  type="text"
-                  name="add"
-                  class="textfield"
-                  placeholder="business hours?"
-                  onChange={toAddInfoHour1}
-                ></input>
-              </label>
-            </li>
-            <li>
-              <label>
-                <span>business hours2</span>
-                <input
-                  type="text"
-                  name="add"
-                  class="textfield"
-                  placeholder="evening business hours?"
-                  onChange={toAddInfoHour2}
-                ></input>
-              </label>
-            </li>
-            <li>
-              <label>
-                <span>regular holiday</span>
-                <input
-                  type="text"
-                  name="add"
-                  class="textfield"
-                  placeholder="regular holiday?"
-                  onChange={toAddInfoHoliday}
-                ></input>
-              </label>
-            </li>
-            <li>
-              <label>
-                <span>place</span>
-                <input
-                  type="text"
-                  name="add"
-                  class="textfield"
-                  placeholder="place?"
-                  onChange={toAddInfoPlace}
-                ></input>
-              </label>
-            </li>
-            <li>
-              <label>
-                <span>url</span>
-                <input
-                  type="text"
-                  name="add"
-                  class="textfield"
-                  placeholder="url?"
-                  onChange={toAddInfoUrl}
-                ></input>
-              </label>
-            </li>
-          </form>
-          <li>
-            <label>
-              <button id="add_info" onClick={toAdd}>
-                add
-              </button>
-            </label>
-          </li>
-        </ul>
-      </div> */}
       <div className="container">
         <h2>Edit restaurant infomation</h2>
 
@@ -335,7 +211,7 @@ function List() {
                   <Form.Control
                     type="text"
                     placeholder="restaurant id?"
-                    onChange={toReadyUpdateId}
+                    // onChange={toReadyUpdateId}
                   ></Form.Control>
                 </Col>
                 <Col>
@@ -355,11 +231,11 @@ function List() {
             {/* ボタンがFormの中にあるとつかえない？ */}
           </Form>
 
-          <Button variant="success" type="submit" onClick={toUpdate}>
+          <Button variant="success" type="submit" >
             update
           </Button>
         </div>
-        <p></p>
+
         <div className="box">
           <Form>
             <Form.Group controlId="formDeleteInfo">
@@ -367,19 +243,17 @@ function List() {
               <Form.Control
                 type="text"
                 placeholder="restaurant id?"
-                onChange={toReadyDelete}
+                onChange={(e)=>setDeleteId(e.target.value)}
               ></Form.Control>
               <Form.Text>{deleteMessage}</Form.Text>
             </Form.Group>
-            {/* <Button variant="info" type="submit" onClick={toDelete}>
-          delete
-        </Button> */}
             {/* ボタンがFormの中にあるとつかえない？ */}
           </Form>
           <Button variant="danger" type="submit" onClick={toDelete}>
             delete
           </Button>
         </div>
+        <input type="submit" value="click" onClick={()=>history.push(`/`)} />
       </div>
     </div>
   );

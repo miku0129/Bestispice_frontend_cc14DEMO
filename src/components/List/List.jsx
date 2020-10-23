@@ -10,7 +10,6 @@ export default function List() {
 
     const [allInfo, setAllInfo] = useState("");
     const [restaurantId, setRestaurantId] = useState(""); 
-    const [deleteMessage, setDeleteMessage] = useState(""); 
 
     const { history, location, match } = useReactRouter(); 
     
@@ -41,12 +40,12 @@ export default function List() {
     } ,[])
 
     //delete one restaurant info
-    async function deleteRestaurant() {
-      let res = await axios.delete(`https://cc14polyglottal-app.herokuapp.com/api/v1/restaurants/${restaurantId}`);
-      let data = res.data;
-      console.log(data);
-      setDeleteMessage(<p>{data.message}</p>);
-    }
+    // async function deleteRestaurant() {
+    //   let res = await axios.delete(`https://cc14polyglottal-app.herokuapp.com/api/v1/restaurants/${restaurantId}`);
+    //   let data = res.data;
+    //   console.log(data);
+    //   setDeleteMessage(<p>{data.message}</p>);
+    // }
   
     
 
@@ -71,8 +70,11 @@ export default function List() {
               <input type="submit" value="submit" onClick={deleteRestaurant} />
                {deleteMessage}
             </div> */}
+            <label>
+              <span>add/edit</span>
+            </label>
+            <input type="submit" value="click" onClick={()=>history.push(`/form`)} />
             <Map />
-            <input type="submit" value="add/edit" onClick={()=>history.push(`/form`)} />
         </div>
 
     )
