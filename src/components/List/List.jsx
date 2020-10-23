@@ -10,6 +10,7 @@ export default function List() {
 
     const [allInfo, setAllInfo] = useState("");
     const [restaurantId, setRestaurantId] = useState(""); 
+    const [deleteMessage, setDeleteMessage] = useState(""); 
 
     const { history, location, match } = useReactRouter(); 
     
@@ -38,6 +39,15 @@ export default function List() {
       }
       getAllInfo()
     } ,[])
+
+    //delete one restaurant info
+    async function deleteRestaurant() {
+      let res = await axios.delete(`https://cc14polyglottal-app.herokuapp.com/api/v1/restaurants/${restaurantId}`);
+      let data = res.data;
+      console.log(data);
+      setDeleteMessage(<p>{data.message}</p>);
+    }
+  
     
 
     return (
@@ -45,7 +55,7 @@ export default function List() {
             <div className="box">
                 {allInfo}
             </div>
-            <div className="box">
+            <div>
               <label>
                 <span>more info</span>
                 <input type="text" name="id" className="textField" placeholder="restaurant ID here" onChange={e=>{console.log(e.target.value); setRestaurantId(e.target.value)}}></input>
@@ -53,7 +63,16 @@ export default function List() {
               {/* <button type="submit" value="submit"><Link to={`/RestaurantCard/${restaurantId}`}>submit</Link></button> */}
               <input type="submit" value="submit" onClick={()=>history.push(`/RestaurantCard/${restaurantId}`)} />
             </div>
+            {/* <div className="box">
+              <label>
+                <span>delete</span>
+                <input type="text" name="id" className="textField" placeholder="restaurant ID here" onChange={e=>{console.log(e.target.value); setRestaurantId(e.target.value)}}></input>
+              </label>
+              <input type="submit" value="submit" onClick={deleteRestaurant} />
+               {deleteMessage}
+            </div> */}
             <Map />
+            <input type="submit" value="add/edit" onClick={()=>history.push(`/form`)} />
         </div>
 
     )

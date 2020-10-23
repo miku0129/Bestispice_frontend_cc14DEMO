@@ -3,7 +3,7 @@ import "./App.css";
 import Nav from "./components/Nav/Nav";
 import List from "./components/List/List";
 import RestaurantCard from "./components/RestaurantCard/RestaurantCard";
-// import Form from "./components/Form/Form";
+import Form from "./components/Form/Form";
 import { Navbar } from "react-bootstrap";
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom"; 
 import useReactRouter from "use-react-router";  
@@ -20,7 +20,7 @@ export default function App() {
         <Switch>
           <Route path="/" component={List} exact />
           <Route path="/restaurantCard/:id" component={RestaurantCard} exact />
-          {/* <Form path="/Form" component={Form} exact /> */}
+          <Route path="/form" component={Form} exact />
         </Switch>
       </Router>
 
