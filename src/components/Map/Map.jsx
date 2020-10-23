@@ -1,5 +1,5 @@
 import React,{ useState, useEffect } from 'react';
-import { GoogleMap } from '@react-google-maps/api';
+import { GoogleMap, Marker } from '@react-google-maps/api';
 import axios from "axios"; 
 
 export default function Map(){
@@ -33,13 +33,19 @@ export default function Map(){
             for (let key in data) {
               temp.push(data[key]);
             }
-            let address = temp.map((el) => {
-                return (
-                    el[3]
-                );
-                })
-              setAddresses(address); 
 
+          // initialize google-map, set lat and lng
+          var geocoder = new window.google.maps.Geocoder();
+          temp.map((item)=>{
+            geocoder.geocode({address: item[4]}, function(results, status){
+              if(status === "OK" && results[0]){
+                const currentLat = results[0].geometry.location.lat();
+                const currentLng = results[0].geometry.location.lng();
+                  }
+              }
+            )
+            return marker(<Marker position={{lat: currentLat, lng: currentLng}} />)
+          }); 
             }
         initMap(); 
             } , [])
