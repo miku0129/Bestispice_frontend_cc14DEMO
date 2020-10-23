@@ -38,19 +38,6 @@ export default function List() {
       }
       getAllInfo()
     } ,[])
-
-    //get single restaurant info => jump to other page for detail 
-    async function getSingleInfo() {
-      console.log(restaurantId)
-      const res = await axios.get(`https://cc14polyglottal-app.herokuapp.com/api/v1/restaurants/${restaurantId}`);
-      const data = res.data;
-      console.log(data);
-      let temp = [];
-      for (let key in data) {
-        temp.push(data[key]);
-      }
-      console.log(temp);
-    }
     
 
     return (
