@@ -3,6 +3,7 @@ import "./Restaurant.css";
 import axios from "axios"; 
 import { GoogleMap, Marker } from "@react-google-maps/api";
 import useReactRouter from "use-react-router";  
+import curry from "./curry2-removebg-preview.png"; 
 
 
 export default function RestaurantCard({match}){
@@ -77,7 +78,9 @@ useEffect(()=>{
                     {
                     currentCenter.lat &&
                     ( 
-                    <Marker position={currentCenter}/>
+                    <Marker 
+                    position={currentCenter}
+                    icon={curry}/>
                     ) 
                 }
                 </GoogleMap>

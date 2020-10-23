@@ -18,7 +18,7 @@ export default function App() {
       </header>
       <Router>
         <Switch>
-          <List path="/" component={List} exact />
+          <Route path="/" component={List} exact />
           <Route path="/restaurantCard/:id" component={RestaurantCard} exact />
           {/* <Form path="/Form" component={Form} exact /> */}
         </Switch>

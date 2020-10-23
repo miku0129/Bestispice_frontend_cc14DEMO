@@ -1,20 +1,16 @@
 import React from "react";
 import "../Nav/Nav.css";
-import { Navbar } from "react-bootstrap";
+// import { Navbar } from "react-bootstrap";
 
 function Nav() {
   return (
     <div>
-      <Navbar bg="light">
-        <Navbar.Brand>
           <img
             src="/logo__13_-removebg-preview.png"
-            width="500"
-            height="auto"
+            width="auto"
+            height="30px"
             alt="bestipython logo"
           />
-        </Navbar.Brand>
-      </Navbar>
     </div>
   );
 }
