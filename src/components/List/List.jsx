@@ -19,13 +19,13 @@ export default function List() {
       async function getAllInfo() {
         let res = await axios.get("https://cc14polyglottal-app.herokuapp.com/api/v1/restaurants/");
         let data = res.data;
-        console.log(data);
+        // console.log(data);
         let temp = [];
         for (let key in data) {
-          console.log(data[key]);
+          // console.log(data[key]);
           temp.push(data[key]);
         }
-        console.log(temp);
+        // console.log(temp);
         setAllInfo(
           temp.map((el) => {
             return (

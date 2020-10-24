@@ -6,7 +6,7 @@
 
 import AWS from "aws-sdk";
 
-const bucketName = "cc14-polyglottal2-fe";
+const bucketName = "cc14polyglottal";
 const identityPoolId = "ap-northeast-1:3c5a91da-e9ef-4a20-a6e6-ff256443d96a";
 
 AWS.config.update({

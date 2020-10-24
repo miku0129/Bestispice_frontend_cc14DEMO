@@ -73,10 +73,12 @@ useEffect(()=>{
         fetchPhotos();
     },[]); 
 
+    console.log("photos?", photos[0])
+
 
     return(
-        //miku: add picture image here 
         <div>
+            {/* <img src={photos[0]}/> */}
             <ul>
                 <li>name: {info[4]}</li>
                 <li>feature: {info[3]}</li>

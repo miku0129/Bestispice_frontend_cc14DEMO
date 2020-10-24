@@ -40,7 +40,7 @@ export default function Map(){
             let temp = []; 
             for (let key in data) {
               temp.push(data[key])
-              console.log(data[key])
+              // console.log(data[key])
 
             }
             let arr = []; 
