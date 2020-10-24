@@ -10,10 +10,8 @@ export default function Map(){
 
   const [ selected, setSelected ] = useState({}); 
   const onSelect = item => {
-    console.log("item?", item)
     setSelected(item); 
   }
-  console.log("selected?", selected[1]); 
 
     const mapStyles = {
         margin: "0 auto",
@@ -45,15 +43,10 @@ export default function Map(){
               console.log(data[key])
 
             }
-            console.log("locations",temp)
             let arr = []; 
-            let arrForInfo =[]
             temp.map(element=>{
-              console.log(element)
                 return (
                   geocoder.geocode({address:element[3]}, function(results, status){
-
-                    console.log("results",results)
                     if(status === "OK" && results[0]){
                       let currentLat = results[0].geometry.location.lat();
                       let currentLng = results[0].geometry.location.lng();
@@ -61,10 +54,13 @@ export default function Map(){
                       element[6] = letLng
                       arr.push(element)
                         }
-                        console.log("arr?",arr)
                         setMarker(arr.map(item=>{
-                          return (<Marker key={item[1]} position={item[6]} icon={curry} onClick={()=>onSelect(item)}/>
-                          )
+                          return (
+                          <Marker 
+                          key={item[1]} 
+                          position={item[6]} 
+                          icon={curry} 
+                          onClick={()=>onSelect(item)}/>)
                         }))
                           })
                         )})
@@ -74,19 +70,17 @@ export default function Map(){
 
       return (
         <div className="map_wrapper">
-        <GoogleMap
-          mapContainerStyle={mapStyles}
-          zoom={11}
-          center={defaultCenter}
-        > 
-        { marker }
-        {
-                            selected[6] &&
-                            (<InfoWindow position={selected[6]}><p>{selected[0]}</p></InfoWindow>)
-                          }
-
-        
-        </GoogleMap>
+          <GoogleMap
+            mapContainerStyle={mapStyles}
+            zoom={11}
+            center={defaultCenter}
+          > 
+          { marker }
+          {
+            selected[6] &&
+            (<InfoWindow position={selected[6]}><p>{selected[0]}</p></InfoWindow>)
+          }
+          </GoogleMap>
         </div>
       )
 }
