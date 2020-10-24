@@ -33,10 +33,11 @@ useEffect(()=>{
             temp.push(data[key]);
           }
           setInfo(temp); 
+          console.log("temp",temp[5])
 
           // initialize google-map, set lat and lng
           var geocoder = new window.google.maps.Geocoder();
-          geocoder.geocode({address: temp[4]}, function(results, status){
+          geocoder.geocode({address: temp[5]}, function(results, status){
               if(status === "OK" && results[0]){
                 const lat = results[0].geometry.location.lat();
                 const lng = results[0].geometry.location.lng();
@@ -55,21 +56,21 @@ useEffect(()=>{
         initMap(); 
             },[])
 
-            console.log(info)
+            console.log("infoooo",info)
 
     return(
         //miku: add picture image here 
         <div>
             <ul>
-                <li>name: {info[3]}</li>
-                <li>feature: {info[2]}</li>
-                <li>place: {info[4]}</li>
+                <li>name: {info[4]}</li>
+                <li>feature: {info[3]}</li>
+                <li>place: {info[5]}</li>
                 <li>business hour: {info[0]}</li>
                 <li>business hour(evening): {info[1]}</li>
-                <li>regular holiday: {info[5]}</li>
-                <li>TELL: {info[6]}</li>
-                <li>URL: {info[7]}</li>
-                <li>comment: {info[8]}</li>
+                <li>regular holiday: {info[6]}</li>
+                <li>TELL: {info[7]}</li>
+                <li>URL: {info[8]}</li>
+                <li>comment: {info[2]}</li>
 
            </ul>
            <div>
