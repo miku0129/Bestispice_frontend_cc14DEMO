@@ -32,7 +32,7 @@ export default function List() {
               <ul key={el[1]}>
                 <li>
               <Link to={`/restaurantCard/${el[1]}`}>              
-              ID: {el[1]}, Name: {el[0]}, Feature: {el[2]} 🍛 {el[5]}
+              ID: {el[1]}, Name: {el[0]}, Feature: {el[2]} 🍛
               </Link>
               </li>
               </ul>

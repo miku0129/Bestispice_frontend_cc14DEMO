@@ -78,7 +78,9 @@ export default function Map(){
           { marker }
           {
             selected[6] &&
-            (<InfoWindow position={selected[6]}><p>{selected[0]}</p></InfoWindow>)
+            (<InfoWindow position={selected[6]}>
+              <p>{selected[0]}<br/>{selected[5]}</p>
+              </InfoWindow>)
           }
           </GoogleMap>
         </div>
