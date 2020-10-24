@@ -1,5 +1,5 @@
 import React,{ useState, useEffect } from 'react';
-import { GoogleMap, Marker } from '@react-google-maps/api';
+import { GoogleMap, Marker, InfoWindow } from '@react-google-maps/api';
 import axios from "axios"; 
 import curry from "../../image/cuteStamp.jpg"; 
 
@@ -7,7 +7,14 @@ import curry from "../../image/cuteStamp.jpg";
 export default function Map(){
 
   const [ marker, setMarker ] = useState(""); 
-  
+
+  const [ selected, setSelected ] = useState({}); 
+  const onSelect = item => {
+    console.log("item?", item)
+    setSelected(item); 
+  }
+  console.log("selected?", selected[1]); 
+
     const mapStyles = {
         margin: "0 auto",
         height: "60vh",
@@ -34,27 +41,30 @@ export default function Map(){
             let data = res.data;
             let temp = []; 
             for (let key in data) {
-              temp.push(data[key][3])
+              temp.push(data[key])
+              console.log(data[key])
+
             }
+            console.log("locations",temp)
             let arr = []; 
-            console.log(temp)
-            temp.map(item=>{
-              // console.log(item[3])
+            let arrForInfo =[]
+            temp.map(element=>{
+              console.log(element)
                 return (
-                  geocoder.geocode({address:item}, function(results, status){
-                    console.log(item)
+                  geocoder.geocode({address:element[3]}, function(results, status){
 
                     console.log("results",results)
                     if(status === "OK" && results[0]){
                       let currentLat = results[0].geometry.location.lat();
                       let currentLng = results[0].geometry.location.lng();
                       let letLng = { lat: currentLat, lng: currentLng}; 
-                      console.log(letLng)
-                      arr.push(letLng)
+                      element[6] = letLng
+                      arr.push(element)
                         }
                         console.log("arr?",arr)
                         setMarker(arr.map(item=>{
-                          return (<Marker position={item} icon={curry} />)
+                          return (<Marker key={item[1]} position={item[6]} icon={curry} onClick={()=>onSelect(item)}/>
+                          )
                         }))
                           })
                         )})
@@ -66,10 +76,17 @@ export default function Map(){
         <div className="map_wrapper">
         <GoogleMap
           mapContainerStyle={mapStyles}
-          zoom={10}
+          zoom={11}
           center={defaultCenter}
         > 
-        { marker }</GoogleMap>
+        { marker }
+        {
+                            selected[6] &&
+                            (<InfoWindow position={selected[6]}><p>{selected[0]}</p></InfoWindow>)
+                          }
+
+        
+        </GoogleMap>
         </div>
       )
 }
