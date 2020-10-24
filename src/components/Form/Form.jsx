@@ -22,31 +22,22 @@ function List() {
 
   //update name
   //get id
-  // const [readyUpdateId, setReadyUpdateId] = useState("");
-  // function toReadyUpdateId(e) {
-  //   setReadyUpdateId(e.target.value);
-  // }
-  // console.log(readyUpdateId);
-  //get name
-  const [readyUpdateName, setReadyUpdateName] = useState("");
-  function toReadyUpdateName(e) {
-    setReadyUpdateName(e.target.value);
-  }
-  // console.log(readyUpdateName);
-  //set update name with given id and name
+  const [updateCommentId, setUpdateCommentId] = useState("");
+  // console.log(updateCommentId);
+
+  //get entered commnet 
+  const [updateComment, setUpdateComment] = useState("");
+  // console.log(updateComment);
+
+  //set updated comment with given id
   const [updateMessage, setUpdateData] = useState("");
-  // async function toUpdate() {
-  //   let http =
-  //     "https://cc14polyglottal-app.herokuapp.com/api/v1/restaurants/" +
-  //     readyUpdateId +
-  //     "/" +
-  //     readyUpdateName;
-  //   let req = axios.put(http);
-  //   let res = await req;
-  //   let data = res.data;
-  //   console.log(data);
-  //   setUpdateData(data.message);
-  // }
+
+  async function toUpdateComment() {
+    let res = await axios.put(`https://cc14polyglottal-app.herokuapp.com/api/v1/restaurants/${updateCommentId}/${updateComment}`);
+    let data = res.data;
+    console.log(data);
+    setUpdateData(data.message);
+  }
 
 
   //post new restaurant
@@ -106,7 +97,6 @@ function List() {
     console.log("hello");
     setUpdateMessage(result.message);
   }
-  // console.log(updatedMessage);
 
   return (
     <div>
@@ -199,39 +189,33 @@ function List() {
         </Button>
       </div>
       <div className="container">
-        <h2>Edit restaurant infomation</h2>
+        <h2>Edit info</h2>
 
         <div className="box">
           <Form>
             <Form.Group controlId="formUpdateInfo">
-              <Form.Label>Update info</Form.Label>
-
+              <Form.Label>Update comment</Form.Label>
               <Row>
                 <Col>
                   <Form.Control
                     type="text"
                     placeholder="restaurant id?"
-                    // onChange={toReadyUpdateId}
+                    onChange={e=>{setUpdateCommentId(e.target.value)}}
                   ></Form.Control>
                 </Col>
                 <Col>
                   <Form.Control
                     type="text"
-                    placeholder="update name?"
-                    onChange={toReadyUpdateName}
+                    placeholder="update comment?"
+                    onChange={e=>{setUpdateComment(e.target.value)}}
                   ></Form.Control>
                 </Col>
               </Row>
-
               <Form.Text>{updateMessage}</Form.Text>
             </Form.Group>
-            {/* <Button variant="info" type="submit" onClick={toDelete}>
-          delete
-        </Button> */}
             {/* ボタンがFormの中にあるとつかえない？ */}
           </Form>
-
-          <Button variant="success" type="submit" >
+          <Button variant="success" type="submit" onClick={toUpdateComment}>
             update
           </Button>
         </div>
