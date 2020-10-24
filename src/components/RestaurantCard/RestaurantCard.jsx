@@ -4,6 +4,8 @@ import axios from "axios";
 import { GoogleMap, Marker } from "@react-google-maps/api";
 import useReactRouter from "use-react-router";  
 import curry from "../../image/cuteStamp.jpg"; 
+//miku
+import {listObjects} from "../../utils/index"; 
 
 
 export default function RestaurantCard({match}){
@@ -11,12 +13,15 @@ export default function RestaurantCard({match}){
     const [ info, setInfo ] = useState([]); 
     const [ currentCenter , setCurrentCenter ] = useState({}); 
 
+    //miku
+    const [ photos, setPhotos ] = useState(""); 
+
     const { history, location} = useReactRouter(); 
 
     const mapStyles = {
         margin: "0 auto",
         height: "50vh",
-        width: "80%",
+        width: "70%",
         boxShadow: "0 4px 8px grey",
         marginTop: "30px",
         marginBottom: "50px",
@@ -56,7 +61,18 @@ useEffect(()=>{
         initMap(); 
             },[])
 
-            console.log("infoooo",info)
+
+    //miku
+    useEffect(()=>{
+        async function fetchPhotos(){
+            const arrayOfPhotoObjects = await listObjects();
+            console.log(arrayOfPhotoObjects); 
+            const result = arrayOfPhotoObjects.map(obj=>obj.Key); 
+            setPhotos(result); 
+        }
+        fetchPhotos();
+    },[]); 
+
 
     return(
         //miku: add picture image here 
@@ -79,7 +95,7 @@ useEffect(()=>{
            <div className="map_wrapper">
                 <GoogleMap
                 mapContainerStyle={mapStyles}
-                zoom={12}
+                zoom={14}
                 center={currentCenter} 
                 >
                     {
