@@ -5,7 +5,8 @@ import { GoogleMap, Marker } from "@react-google-maps/api";
 import useReactRouter from "use-react-router";  
 import curry from "../../image/cuteStamp.jpg"; 
 //miku
-import {listObjects} from "../../utils/index"; 
+import {listObjects, getSingleObject} from "../../utils/index"; 
+import { MediaStoreData } from "aws-sdk";
 
 
 export default function RestaurantCard({match}){
@@ -15,6 +16,8 @@ export default function RestaurantCard({match}){
 
     //miku
     const [ photos, setPhotos ] = useState(""); 
+    const [ photoData, setPhotoData] = useState([]);
+    const [ images, setImages] = useState([]); 
 
     const { history, location} = useReactRouter(); 
 
@@ -62,23 +65,55 @@ useEffect(()=>{
             },[])
 
 
-    //miku
+    //miku get data from backet 
     useEffect(()=>{
         async function fetchPhotos(){
             const arrayOfPhotoObjects = await listObjects();
-            console.log(arrayOfPhotoObjects); 
+            console.log("arrayofphoto obj",arrayOfPhotoObjects); 
             const result = arrayOfPhotoObjects.map(obj=>obj.Key); 
             setPhotos(result); 
         }
         fetchPhotos();
     },[]); 
 
-    console.log("photos?", photos[0])
+    //miku convert data into array of photo data 
+    useEffect(()=>{
+        async function getData(photoArray){
+            const result = []; 
+            for (const photo of photoArray){
+                let photoObj = {
+                    key: photo,
+                    bit: await getSingleObject(photo)
+                };
+                result.push(photoObj); 
+            }
+            setPhotoData(result);
+        }
+        getData(photos);
+    }, [photos]); 
 
+    console.log("photodata", photoData); 
+
+    //miku create image element for eatch element in data 
+    useEffect(() =>{
+        let result = [];
+        for ( let i = 0; i < photoData.length; i++){
+            const img = (
+                <div className="imgCell">
+                    <img
+                    src={`data:image/png;base64,${photoData[i].bit}`}
+                    key={photoData[i].key}
+                    className="image" />
+                </div>
+            );
+            result.push(img); 
+        };
+        setImages(result);
+    }, [photoData]); 
 
     return(
         <div>
-            {/* <img src={photos[0]}/> */}
+            {images}
             <ul>
                 <li>name: {info[4]}</li>
                 <li>feature: {info[3]}</li>
