@@ -1,7 +1,7 @@
 import React,{ useState, useEffect } from 'react';
 import { GoogleMap, Marker, InfoWindow } from '@react-google-maps/api';
 import axios from "axios"; 
-import curry from "../../image/cuteStamp.jpg"; 
+import curry from "../../image/indian36by49.jpg"; 
 
 
 export default function Map(){

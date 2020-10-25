@@ -3,20 +3,19 @@ import "./Restaurant.css";
 import axios from "axios"; 
 import { GoogleMap, Marker } from "@react-google-maps/api";
 import useReactRouter from "use-react-router";  
-import curry from "../../image/cuteStamp.jpg"; 
-//miku
+import curry from "../../image/indian36by49.jpg"; 
 import {listObjects, getSingleObject} from "../../utils/index"; 
 import { MediaStoreData } from "aws-sdk";
 
 
 export default function RestaurantCard({match}){
 
+    //map 
     const [ info, setInfo ] = useState([]); 
     const [ currentCenter , setCurrentCenter ] = useState({}); 
-
-    //miku
-    const [ photos, setPhotos ] = useState(""); 
-    const [ photoData, setPhotoData] = useState([]);
+    //picture 
+    const [ dataFromS3, setdataFromS3] = useState([]);
+    const [ imageData, setimageData] = useState(""); 
     const [ images, setImages] = useState([]); 
 
     const { history, location} = useReactRouter(); 
@@ -30,7 +29,6 @@ export default function RestaurantCard({match}){
         marginBottom: "50px",
         borderRadius: "30px"
       };
-
 
 useEffect(()=>{
     async function initMap(){
@@ -64,56 +62,58 @@ useEffect(()=>{
         initMap(); 
             },[])
 
-
-    //miku get data from backet 
+    //fetch data from backet 
     useEffect(()=>{
-        async function fetchPhotos(){
+        async function fetchImageData
+        (){
             const arrayOfPhotoObjects = await listObjects();
-            console.log("arrayofphoto obj",arrayOfPhotoObjects); 
             const result = arrayOfPhotoObjects.map(obj=>obj.Key); 
-            setPhotos(result); 
+            setdataFromS3(result); 
         }
-        fetchPhotos();
+        fetchImageData
+        ();
     },[]); 
 
-    //miku convert data into array of photo data 
+    //convert data into array of image data 
     useEffect(()=>{
-        async function getData(photoArray){
+        async function getImage(photoArray){
             const result = []; 
             for (const photo of photoArray){
                 let photoObj = {
                     key: photo,
                     bit: await getSingleObject(photo)
                 };
+                console.log('photoObj',photoObj); 
                 result.push(photoObj); 
             }
-            setPhotoData(result);
+            setimageData(result);
         }
-        getData(photos);
-    }, [photos]); 
+        getImage(dataFromS3);
+    }, [dataFromS3]); 
+    console.log('imagedata', imageData); 
 
-    console.log("photodata", photoData); 
-
-    //miku create image element for eatch element in data 
+    //create image element for eatch element in data 
     useEffect(() =>{
         let result = [];
-        for ( let i = 0; i < photoData.length; i++){
+        for ( let i = 0; i < imageData.length; i++){
             const img = (
                 <div className="imgCell">
                     <img
-                    src={`data:image/png;base64,${photoData[i].bit}`}
-                    key={photoData[i].key}
+                    src={`data:image/png;base64,${imageData[i].bit}`}
+                    key={imageData[i].key}
                     className="image" />
                 </div>
             );
             result.push(img); 
         };
         setImages(result);
-    }, [photoData]); 
+    }, [imageData]); 
 
     return(
         <div>
+            <div id="imageContainer">
             {images}
+            </div>
             <ul>
                 <li>name: {info[4]}</li>
                 <li>feature: {info[3]}</li>

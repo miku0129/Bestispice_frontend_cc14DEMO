@@ -1,0 +1,19 @@
+#imageContainer{
+    display: flex;
+    flex-direction: row;
+    height: 300px;
+    width:auto;
+    background-color: red;
+}
+
+.imgCell {
+height: 280px;
+width:auto; 
+margin-top: 10px;
+margin-bottom: 10px;
+}
+  
+.image{
+    height: 100%; 
+    width:auto;
+}
