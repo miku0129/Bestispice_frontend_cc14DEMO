@@ -114,13 +114,9 @@ useEffect(()=>{
 
     return(
         <div>
-                        {/* <div id="imageContainer"> */}
-
             <Slider className="imgSlider" dots="true" infinite={true} speed={500} slidesToShow={1} slidesToScroll={1}>
             {images}
             </Slider>
-            {/* </div> */}
-
             <ul>
                 <li>name: {info[4]}</li>
                 <li>feature: {info[3]}</li>
@@ -131,7 +127,6 @@ useEffect(()=>{
                 <li>TELL: {info[7]}</li>
                 <li>URL: {info[8]}</li>
                 <li>comment: {info[2]}</li>
-
            </ul>
            <div>
            <input type="submit" value="HOME" onClick={()=>history.push(`/`)} />
