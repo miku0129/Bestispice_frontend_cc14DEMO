@@ -25,6 +25,9 @@ margin-bottom: 10px;
     width:auto;
 }
 
+#restaurantInfoContainer{
+    background-color: rgb(248, 244, 244);
+}
 #homeButton{
   position: relative;
   display: inline-block;
