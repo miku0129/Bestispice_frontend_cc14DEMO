@@ -6,6 +6,9 @@ import useReactRouter from "use-react-router";
 import curry from "../../image/indian36by49.jpg"; 
 import {listObjects, getSingleObject} from "../../utils/index"; 
 import { MediaStoreData } from "aws-sdk";
+import Slider from "react-slick"; 
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 
 export default function RestaurantCard({match}){
@@ -111,9 +114,13 @@ useEffect(()=>{
 
     return(
         <div>
-            <div id="imageContainer">
+                        {/* <div id="imageContainer"> */}
+
+            <Slider className="imgSlider" dots="true" infinite={true} speed={500} slidesToShow={1} slidesToScroll={1}>
             {images}
-            </div>
+            </Slider>
+            {/* </div> */}
+
             <ul>
                 <li>name: {info[4]}</li>
                 <li>feature: {info[3]}</li>
