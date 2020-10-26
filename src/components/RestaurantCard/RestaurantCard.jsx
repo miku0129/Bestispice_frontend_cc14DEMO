@@ -114,7 +114,7 @@ useEffect(()=>{
 
     return(
         <div>
-            <Slider className="imgSlider"  infinite={true} speed={500} slidesToShow={1} slidesToScroll={1}>
+            <Slider className="imgSlider"  infinite={true} speed={500} slidesToShow={4} slidesToScroll={4}>
             {images}
             </Slider>
             <ul>
