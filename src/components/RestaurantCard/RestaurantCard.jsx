@@ -117,6 +117,7 @@ useEffect(()=>{
             <Slider className="imgSlider"  infinite={true} speed={500} slidesToShow={4} slidesToScroll={4}>
             {images}
             </Slider>
+            <div id="restaurantInfoContainer">
             <ul>
                 <li>name: {info[4]}</li>
                 <li>feature: {info[3]}</li>
@@ -128,6 +129,7 @@ useEffect(()=>{
                 <li>URL: {info[8]}</li>
                 <li>comment: {info[2]}</li>
            </ul>
+           </div>
            <div>
            <input id="homeButton" type="submit" value="HOME" onClick={()=>history.push(`/`)} />
            </div>

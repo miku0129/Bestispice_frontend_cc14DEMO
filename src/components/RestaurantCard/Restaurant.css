@@ -24,7 +24,11 @@ margin-bottom: 10px;
     height: 100%; 
     width:auto;
 }
-  
+
+#restaurantInfoContainer{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
 #homeButton{
   position: relative;
   display: inline-block;
