@@ -10,6 +10,7 @@
     transition: .4s;
     width:auto; 
     height: 300px; 
+    margin-bottom: 30px;
   }
 
 .imgCell {
@@ -23,7 +24,7 @@ margin-bottom: 10px;
     height: 100%; 
     width:auto;
 }
-
+  
 #homeButton{
   position: relative;
   display: inline-block;
