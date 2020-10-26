@@ -1,11 +1,16 @@
-.List {
-  background-color: darkcyan;
-}
-
 .container {
   border: 2px dotted #80CC37;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .box {
   border: 2px dotted #80CC37;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+li {
+  list-style: none;
+  font-size: x-large;
 }

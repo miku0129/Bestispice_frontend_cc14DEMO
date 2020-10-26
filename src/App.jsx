@@ -12,7 +12,7 @@ export default function App() {
   return (
     <div className="App wrapper">
       <header>
-        <h3>Spicy life</h3>
+        <h3 style={{textAlign:"center"}}>Spicy life🌶️</h3>
         <Nav />
       </header>
       <Router>
@@ -21,18 +21,7 @@ export default function App() {
           <Route path="/restaurantCard/:id" component={RestaurantCard} exact />
         </Switch>
       </Router>
-
-      {/* <Navbar bg="light">
-        <Navbar.Brand className="footer_logo">
-          <img
-            src="logo__14_-removebg-preview.png"
-            width="100"
-            height="auto"
-            alt="bestipython logo"
-          />
-        </Navbar.Brand>
-      </Navbar> */}
-      <footer>Code Chrysalis 🐍🐍🐍</footer>
+      <footer style={{fontSize:"X-large"}}>Code Chrysalis 🐍🐍🐍</footer>
     </div>
   );
 }

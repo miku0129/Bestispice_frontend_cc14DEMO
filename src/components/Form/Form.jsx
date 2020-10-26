@@ -23,11 +23,9 @@ function List() {
   //update name
   //get id
   const [updateCommentId, setUpdateCommentId] = useState("");
-  // console.log(updateCommentId);
 
   //get entered commnet 
   const [updateComment, setUpdateComment] = useState("");
-  // console.log(updateComment);
 
   //set updated comment with given id
   const [updateMessage, setUpdateData] = useState("");
@@ -42,39 +40,30 @@ function List() {
 
   //post new restaurant
   const [addInfoName, setInfoName] = useState("");
-  // console.log(addInfoName);
 
   //feature
   const [addInfoFeat, setInfoFeat] = useState("");
-  // console.log(addInfoFeat);
 
   //tell
   const [addInfoTell, setInfoTell] = useState("");
-  // console.log(addInfoTell);
 
   //business hour1
   const [addInfoHour1, setInfoHour1] = useState("");
-  // console.log(addInfoHour1);
 
   //business hour2
   const [addInfoHour2, setInfoHour2] = useState("");
-  // console.log(addInfoHour2);
 
   //regular holiday
   const [addInfoHoliday, setInfoHoliday] = useState("");
-  // console.log(addInfoHoliday);
 
   //place
   const [addInfoPlace, setInfoPlace] = useState("");
-  // console.log(addInfoPlace);
 
   //url
   const [addInfoUrl, setInfoUrl] = useState("");
-  // console.log(addInfoUrl);
 
   //comment
   const [addInfoComment, setInfoComment] = useState("");
-  // console.log(addInfoComment);
 
   const [updatedMessage, setUpdateMessage] = useState("");
 

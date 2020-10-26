@@ -19,20 +19,17 @@ export default function List() {
       async function getAllInfo() {
         let res = await axios.get("https://cc14polyglottal-app.herokuapp.com/api/v1/restaurants/");
         let data = res.data;
-        // console.log(data);
         let temp = [];
         for (let key in data) {
-          // console.log(data[key]);
           temp.push(data[key]);
         }
-        // console.log(temp);
         setAllInfo(
           temp.map((el) => {
             return (
               <ul key={el[1]}>
                 <li>
               <Link to={`/restaurantCard/${el[1]}`}>              
-              ID: {el[1]}, Name: {el[0]}, Feature: {el[2]} 🍛
+              ID: {el[1]}, Name: {el[0]}, Feature: {el[2]} 
               </Link>
               </li>
               </ul>

@@ -40,7 +40,6 @@ export default function Map(){
             let temp = []; 
             for (let key in data) {
               temp.push(data[key])
-              // console.log(data[key])
 
             }
             let arr = []; 
@@ -72,7 +71,7 @@ export default function Map(){
         <div className="map_wrapper">
           <GoogleMap
             mapContainerStyle={mapStyles}
-            zoom={11}
+            zoom={12}
             center={defaultCenter}
           > 
           { marker }

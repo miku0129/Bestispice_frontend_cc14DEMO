@@ -129,7 +129,7 @@ useEffect(()=>{
                 <li>comment: {info[2]}</li>
            </ul>
            <div>
-           <input type="submit" value="HOME" onClick={()=>history.push(`/`)} />
+           <input id="homeButton" type="submit" value="HOME" onClick={()=>history.push(`/`)} />
            </div>
            <div className="map_wrapper">
                 <GoogleMap
