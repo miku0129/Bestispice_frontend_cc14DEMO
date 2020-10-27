@@ -29,6 +29,8 @@ margin-right: 5px; */
 
 #restaurantInfoContainer{
     background-color: rgb(248, 244, 244);
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 #homeButton{
   position: relative;
