@@ -12,7 +12,7 @@ export default function App() {
   return (
     <div className="App wrapper">
       <header>
-        <h3 style={{textAlign:"center"}}>Spicy life🌶️</h3>
+        <h3 style={{textAlign:"center"}}>Spicy Life🌶️</h3>
         <Nav />
       </header>
       <Router>

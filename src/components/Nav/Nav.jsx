@@ -6,7 +6,7 @@ function Nav() {
     <div>
       <div className="titleImgContainer">
           <img
-            src="/logo__13_-removebg-preview.png"
+            src="/bestispice.png"
             width="auto"
             height="70px"
             alt="bestipython logo"

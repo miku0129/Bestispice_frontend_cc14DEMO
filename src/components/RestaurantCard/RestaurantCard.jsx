@@ -119,15 +119,15 @@ useEffect(()=>{
             </Slider>
             <div id="restaurantInfoContainer">
             <ul>
-                <li>name: {info[4]}</li>
-                <li>feature: {info[3]}</li>
-                <li>place: {info[5]}</li>
-                <li>business hour: {info[0]}</li>
-                <li>business hour(evening): {info[1]}</li>
-                <li>regular holiday: {info[6]}</li>
-                <li>TELL: {info[7]}</li>
+                <li>Name: {info[4]}</li>
+                <li>Feature: {info[3]}</li>
+                <li>City: {info[5]}</li>
+                <li>Business hour: {info[0]}</li>
+                <li>Business hour(evening): {info[1]}</li>
+                <li>Regular holiday: {info[6]}</li>
+                <li>Telephone: {info[7]}</li>
                 <li>URL: {info[8]}</li>
-                <li>comment: {info[2]}</li>
+                <li>Review: {info[2]}</li>
            </ul>
            </div>
            <div>

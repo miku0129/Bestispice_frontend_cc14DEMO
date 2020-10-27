@@ -109,17 +109,17 @@ function List() {
             />
           </Form.Group>
           <Form.Group controlId="formTell">
-            <Form.Label>Tell</Form.Label>
+            <Form.Label>Telephone</Form.Label>
             <Form.Control
               type="text"
-              placeholder="Enter tell"
+              placeholder="Enter telephone"
               onChange={e=>{setInfoTell(e.target.value)}}
             />
           </Form.Group>
           <Row>
             <Col>
               <Form.Group controlId="formHour1">
-                <Form.Label>Business Hours1</Form.Label>
+                <Form.Label>Business hours1</Form.Label>
                 <Form.Control
                   type="text"
                   placeholder="Enter bussiness hour"
@@ -129,7 +129,7 @@ function List() {
             </Col>
             <Col>
               <Form.Group controlId="formHour2">
-                <Form.Label>Business Hours2</Form.Label>
+                <Form.Label>Business hours2</Form.Label>
                 <Form.Control
                   type="text"
                   placeholder="Enter evening business hour"
@@ -139,7 +139,7 @@ function List() {
             </Col>
           </Row>
           <Form.Group controlId="formHoriday">
-            <Form.Label>Regular Holiday</Form.Label>
+            <Form.Label>Regular holiday</Form.Label>
             <Form.Control
               type="text"
               placeholder="Enter regular holiday"
@@ -147,10 +147,10 @@ function List() {
             />
           </Form.Group>
           <Form.Group controlId="formPlace">
-            <Form.Label>Place</Form.Label>
+            <Form.Label>City</Form.Label>
             <Form.Control
               type="text"
-              placeholder="Enter Place"
+              placeholder="Enter city"
               onChange={e=>{setInfoPlace(e.target.value)}}
             />
           </Form.Group>
@@ -163,10 +163,10 @@ function List() {
             />
           </Form.Group>
           <Form.Group controlId="formComment">
-            <Form.Label>Comment</Form.Label>
+            <Form.Label>Review</Form.Label>
             <Form.Control
               type="text"
-              placeholder="Comment?"
+              placeholder="Enter review"
               onChange={e=>{setInfoComment(e.target.value)}}
             />
           </Form.Group>
@@ -174,11 +174,11 @@ function List() {
           <Form.Text>{updatedMessage}</Form.Text>
         </Form>
         <Button variant="success" type="submit" onClick={addNewPost}>
-          add
+          ADD
         </Button>
       </div>
       <div className="container">
-        <h2>Edit info</h2>
+        <h2>Add review</h2>
 
         <div className="box">
           <Form>
@@ -188,14 +188,14 @@ function List() {
                 <Col>
                   <Form.Control
                     type="text"
-                    placeholder="restaurant id?"
+                    placeholder="Restaurant ID"
                     onChange={e=>{setUpdateCommentId(e.target.value)}}
                   ></Form.Control>
                 </Col>
                 <Col>
                   <Form.Control
                     type="text"
-                    placeholder="update comment?"
+                    placeholder="Update comment"
                     onChange={e=>{setUpdateComment(e.target.value)}}
                   ></Form.Control>
                 </Col>
@@ -205,7 +205,7 @@ function List() {
             {/* ボタンがFormの中にあるとつかえない？ */}
           </Form>
           <Button variant="success" type="submit" onClick={toUpdateComment}>
-            update
+            UPDATE
           </Button>
         </div>
 
@@ -215,7 +215,7 @@ function List() {
               <Form.Label>Delete info</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="restaurant id?"
+                placeholder="Restaurant ID"
                 onChange={(e)=>setDeleteId(e.target.value)}
               ></Form.Control>
               <Form.Text>{deleteMessage}</Form.Text>
@@ -223,7 +223,7 @@ function List() {
             {/* ボタンがFormの中にあるとつかえない？ */}
           </Form>
           <Button variant="danger" type="submit" onClick={toDelete}>
-            delete
+            DELETE
           </Button>
         </div>
       </div>
