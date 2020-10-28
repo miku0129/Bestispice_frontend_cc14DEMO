@@ -1,5 +1,6 @@
 .imgSlider{
     /* position: absolute; */
+    /* Be careful! position disturb the infomation of lists */
     cursor: pointer;
     top: 0;
     left: 0;
