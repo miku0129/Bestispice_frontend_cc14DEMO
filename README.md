@@ -14,7 +14,7 @@
                                                                                           
 # Usage
 
-Access to this address !! ↓　
+Access to this address !!
 https://cc14polyglottal2-fe.vercel.app/
  
 # Author
