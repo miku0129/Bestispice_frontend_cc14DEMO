@@ -1,18 +1,24 @@
 # Bestispice 
  
-### There are many nice spicy food restaurants. This application is for storing data about my favorite spicy food restaurants to share it with my firends.  
-
-<img src="https://i.ibb.co/L572p4h/curryImg.jpg" alt="curryImg" border="0">
+### There are many nice spicy food restaurants. This application is for storing data about my favorite spicy food restaurants to share it with my firends. 🍛
  
 # DEMO
 
-### Map view
+Map view
 
-<img src="https://i.ibb.co/nPzPNT8/2020-10-28-201603.jpg" alt="2020-10-28-201603" border="0">
+<img src="https://i.ibb.co/Nrpnv4z/2020-11-10-000801.jpg" alt="2020-11-10-000801" border="0">
 
-### Information with datail  
+Information with datail  
 
-<img src="https://i.ibb.co/PQfkFqr/2020-10-28-201649.jpg" alt="2020-10-28-201649" border="0">
+<img src="https://i.ibb.co/8s73D83/2020-11-10-001037.jpg" alt="2020-11-10-001037" border="0">
+
+You can modify the information from the form
+
+<img src="https://i.ibb.co/r4vjGFn/2020-11-10-000855.jpg" alt="2020-11-10-000855" border="0">
+
+## Tech stack
+
+React, Vercel, Google Map API, Google geocording API, Amazon Web Service/S3 
                                                                                          
 # Author
 
@@ -20,3 +26,4 @@
 * Email: svartkatt39@gmail.com
 * This app was created during the time in the Code Chrysalis boot-camp. 
 
+Thank you for reading!! 🌈
