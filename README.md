@@ -6,6 +6,9 @@
 
 Map view
 
+Click on the name of restaurants! You can jump to the information of that restaurant. 
+Click on the flag on map! You can get a name and a review of that restaurant!  
+
 <img src="https://i.ibb.co/Nrpnv4z/2020-11-10-000801.jpg" alt="2020-11-10-000801" border="0">
 
 Information with datail  
