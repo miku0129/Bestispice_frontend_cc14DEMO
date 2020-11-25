@@ -9,7 +9,7 @@ Map view
 Click on the name of restaurants! You can jump to the information of that restaurant. 
 Click on the flag on map! You can get a name and a review of that restaurant!  
 
-<img src="https://i.ibb.co/Nrpnv4z/2020-11-10-000801.jpg" alt="2020-11-10-000801" border="0">
+<img src="https://i.ibb.co/jJsXsK5/2020-11-25-182410.jpg" alt="2020-11-25-182410" border="0">
 
 Information with datail  
 
@@ -17,7 +17,7 @@ Information with datail
 
 You can modify the information from the form
 
-<img src="https://i.ibb.co/r4vjGFn/2020-11-10-000855.jpg" alt="2020-11-10-000855" border="0">
+<img src="https://i.ibb.co/bNkHykn/2020-11-25-182622.jpg" alt="2020-11-25-182622" border="0">
 
 ## Tech stack
 
@@ -30,3 +30,4 @@ React, Vercel, Google Map API, Google geocording API, Amazon Web Service/S3
 * This app was created during the time in the Code Chrysalis boot-camp. 
 
 Thank you for reading!! 🌈
+
